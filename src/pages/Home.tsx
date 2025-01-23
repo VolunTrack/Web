@@ -26,6 +26,16 @@ function Home() {
                         imagePath: '/images/card-assistance.webp',
                     },
                 ]} />
+                <div className='home-bottom'>
+                    <div className='home-text-container'>
+                        <div className='home-text'>
+                            <h1>Your best partner for connecting with non-profits and building community</h1>
+                            <p>At Voluntrack, we connect volunteers with non-profits through innovative technology to drive meaningful community impact. As a Canada Not-for-profit, we’re dedicated to fostering positive change.</p>
+                        </div>
+                        <div className='home-place-holder' />
+                    </div>
+                    <img src='/assets/hands.png' alt='hands' className='home-image' />
+                </div>
             </div>
         </div>
     )

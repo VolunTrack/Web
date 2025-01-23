@@ -5,6 +5,9 @@ import './Footer.css';
 function Footer() {
     return (
         <div className='footer'>
+            <div className='footer-logo'>
+                <img src="/assets/voluntrack_bg.png" alt="voluntrack logo" />
+            </div>
             <div className='footer-left'>
                 <h2>Voluntrack</h2>
                 <p>Connecting Futures: Empowering Youth and Communities through Innovative Volunteering.</p>

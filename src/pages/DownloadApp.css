@@ -1,0 +1,27 @@
+.download-app {
+    width: 100%;
+    background-color: #884efe;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.download-app-container {
+    width: min(100%, 800px);
+    display: flex;
+    flex-direction: row;
+}
+
+.download-app-text {
+    margin-top: 5em;
+    margin-left: 1em;
+    margin-right: 5em;
+    color: #ffffff;
+}
+
+.download-app-image img {
+    margin-top: 1em;
+    margin-right: 1em;
+    width: 16em;
+}

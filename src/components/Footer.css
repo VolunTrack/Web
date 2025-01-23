@@ -4,17 +4,26 @@
     flex-direction: row;
     width: min(100%, 800px);
     font-family: Arial, Helvetica, sans-serif;
-    margin-top: 1em;
+    margin-top: 2em;
+}
+
+.footer-logo {
+    margin-right: 1em;
+}
+
+.footer-logo img {
+    width: 5em;
+    height: 5em;
 }
 
 .footer-left {
     flex: 1;
-    width: 50%;
+    width: 45%;
 }
 
 .footer-right {
     flex: 1;
-    width: 50%;
+    width: 45%;
     display: flex;
     flex-direction: row;
 }

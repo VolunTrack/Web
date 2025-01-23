@@ -37,10 +37,10 @@ function ContentCard({ content }: { content: Content }) {
                     alt='content-card-image'
                     className='content-card-image' />
                 </div>
-                <div className='content-card-text'>
+                {/* <div className='content-card-text'>
                     <h2>{title}</h2>
                     <p>{description}</p>
-                </div>
+                </div> */}
             </div>
         </div>
     )

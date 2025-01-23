@@ -4,3 +4,40 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
+.home-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+    width: 100%;
+}
+
+.home-text-container {
+    width: min(100%, 800px);
+}
+
+.home-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    width: 70%;
+    left: 5em;
+    bottom: 5em;
+}
+
+.home-text h1 {
+    color: #884efe;
+}
+
+.home-place-holder {
+    width: 30%;
+}
+
+.home-image {
+    position: absolute;
+    width: 32em;
+    object-fit: cover;
+    bottom: 0;
+    right: 0;
+}
