@@ -4,6 +4,7 @@
     flex-direction: row;
     width: min(100%, 800px);
     font-family: Arial, Helvetica, sans-serif;
+    margin-top: 1em;
 }
 
 .footer-left {

@@ -2,26 +2,48 @@
 
 import './ContentCard.css';
 
-interface ContentCardProps {
+
+interface Content {
+    title: string;
+    description: string;
     imagePath: string;
 }
 
-function ContentCard({ imagePath }: ContentCardProps) {
+interface ContentCardGroupProps {
+    title: string;
+    content: Content[];
+}
+
+function ContentCardGroup({ title, content }: ContentCardGroupProps) {
+    return (
+        <div className='content-card-group'>
+                <h1>{title}</h1>
+                <div className='content-card-group-container'>
+                {content.map((content, index) => (
+                    <ContentCard key={index} content={content} />
+                ))}
+            </div>
+        </div>
+    )
+}
+
+function ContentCard({ content }: { content: Content }) {
+    const { title, description, imagePath } = content;
     return (
         <div className='content-card'>
             <div className='content-card-container'>
                 <div className='content-card-image'>
-                    <img src={imagePath}
+                    <img src={imagePath===undefined ? '': imagePath}
                     alt='content-card-image'
                     className='content-card-image' />
                 </div>
                 <div className='content-card-text'>
-                    <h2>Volunteer Opportunities</h2>
-                    <p>Find the perfect volunteer opportunity for you. Search by city or province, or by keyword.</p>
+                    <h2>{title}</h2>
+                    <p>{description}</p>
                 </div>
             </div>
         </div>
     )
 }
 
-export default ContentCard;
+export default ContentCardGroup;
