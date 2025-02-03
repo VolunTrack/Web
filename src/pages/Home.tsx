@@ -13,20 +13,20 @@ function Home() {
                     {
                         title: 'Support',
                         description: 'Support - some text',
-                        imagePath: '/images/card-support.webp',
+                        imagePath: '/images/card-support.png',
                     },
                     {
                         title: 'Culture',
                         description: 'Culture - some text',
-                        imagePath: '/images/card-culture.webp',
+                        imagePath: '/images/card-culture.png',
                     },
                     {
                         title: 'Assistance',
                         description: 'Assistance - some text',
-                        imagePath: '/images/card-assistance.webp',
+                        imagePath: '/images/card-assistance.png',
                     },
                 ]} />
-                <div className='home-bottom'>
+                <div className='learn-more'>
                     <div className='home-text-container'>
                         <div className='home-text'>
                             <h1>Your best partner for connecting with non-profits and building community</h1>
@@ -34,7 +34,7 @@ function Home() {
                         </div>
                         <div className='home-place-holder' />
                     </div>
-                    <img src='/assets/hands.png' alt='hands' className='home-image' />
+                    {/* <img src='/assets/hands.png' alt='hands' className='home-image' /> */}
                 </div>
             </div>
         </div>
