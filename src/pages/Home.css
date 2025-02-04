@@ -1,8 +1,21 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200%;
+}
+
 .home-card-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.home-content-card-group-container {
+    display: flex;
+    flex-direction: column;
 }
 
 .learn-more {
@@ -21,7 +34,7 @@
 
 .home-text {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     width: 70%;
     left: 5em;
     bottom: 5em;
@@ -41,4 +54,53 @@
     object-fit: cover;
     bottom: 0;
     right: 0;
+}
+
+.download-app {
+    width: 100%;
+    background-color: #884efe;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.download-app-container {
+    width: min(100%, 800px);
+    display: flex;
+    flex-direction: row;
+}
+
+.download-app-text {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 5em;
+    margin-left: 1em;
+    margin-right: 5em;
+    color: #ffffff;
+}
+
+.download-app-text h1 {
+    font-size: 1.2em;
+}
+
+.download-app-text p {
+    font-size: 1em;
+}
+
+.download-app-image img {
+    margin-top: 1em;
+    margin-right: 1em;
+    width: 16em;
+}
+
+.qr-code-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.qr-code-text {
+    position: absolute;
+    bottom: 0;
 }
