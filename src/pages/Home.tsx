@@ -1,11 +1,15 @@
 // filename: Home.tsx
 
 import ContentCardGroup from '../components/ContentCard';
+import HeroSection from '../components/HeroSection';
+import SearchBar from '../components/SearchBar';
 import './Home.css';
 
 function Home() {
     return (
         <div className='home'>
+            <HeroSection />
+            <SearchBar />
             <div className='home-card-container'>
                 <div className='home-content-card-group-container'>
                 <ContentCardGroup
@@ -74,10 +78,10 @@ function Home() {
                                     className='qr-code-arrow'
                                     src="/assets/qr-code-arrow.png"
                                     alt="qr-code-arrow" />
-                                {/* <img
+                                <img
                                     className='qr-code-text'
                                     src="/assets/qr-code-text.png"
-                                    alt="qr-code-text" /> */}
+                                    alt="qr-code-text" />
                             </div>
                         </div>
                         <div className='download-app-image'>

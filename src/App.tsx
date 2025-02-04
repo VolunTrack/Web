@@ -1,8 +1,8 @@
 import Header from './components/Header'
-import HeroSection from './components/HeroSection'
-import SearchBar from './components/SearchBar'
 import Home from './pages/Home'
+import History from './pages/History'
 import Footer from './components/Footer'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css'
 
 function App() {
@@ -10,12 +10,13 @@ function App() {
   return (
     <>
       <Header />
-      <main className="main">
-        <HeroSection />
-        <SearchBar />
-        <Home />
-        <Footer />
-      </main>
+      <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/history" element={<History />} />
+          </Routes>
+      </Router>
+      <Footer />
     </>
   )
 }
