@@ -7,12 +7,23 @@ function Header() {
     <header className="header">
         <div className="text-container">
             <div className="header-left">
+              <a href='/'>
                 <img src="/assets/logo.png" alt="logo" />
-                <h1>VolunTrack</h1>
+              </a>
+              <a 
+              href='/'
+              className="title"
+              >Voluntrack</a>
             </div>
             <div className="header-right">
-                <a className="button">About Us</a>
-                <a className="button">Our History</a>
+                <a 
+                href='/about-us'
+                className="button"
+                >About Us</a>
+                <a 
+                href='/history'
+                className="button"
+                >Our History</a>
             </div>
         </div>
     </header>

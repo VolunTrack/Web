@@ -4,6 +4,12 @@ import "./History.css";
 
 function History() {
   return (
+    <div className="history">
+      <div className="banner">
+        <div className="banner-container">
+        <h1>Our History</h1>
+        </div>
+      </div>
     <div className="timeline-container">
       {/* 左侧时间线 */}
       <div className="timeline">
@@ -20,6 +26,11 @@ function History() {
         {/* 2023 节点 */}
         <div className="timeline-point year-2023">
           <span>2023</span>
+          <div className="timeline-dot"></div>
+        </div>
+        {/* 2022 节点 */}
+        <div className="timeline-point year-2022">
+          <span>2022</span>
           <div className="timeline-dot"></div>
         </div>
       </div>
@@ -62,7 +73,28 @@ function History() {
             platform more user-friendly, thereby enhancing its efficacy in serving the community.
           </p>
         </div>
+
+        {/* 2022 内容卡片 */}
+        <div className="content-card card-2022">
+          <h2>Founding Years</h2>
+          <p>
+            In the year of its founding, VolunTracks emerged as a promising initiative, dedicated to 
+            fostering seamless collaboration between volunteers and non-profit organizations through 
+            innovative technological solutions. A dynamic and passionate team swiftly coalesced, comprising 
+            individuals with diverse talents and a shared commitment to transforming the concept into a tangible reality.
+          </p>
+            Over the course of the year, the team successfully executed the initial development phase 
+            of a mobile application. This application, while characterized by its simplicity, boasted 
+            powerful features designed to serve as a unifying platform for volunteers and organizations 
+            alike. Notwithstanding certain imperfections, the app garnered triple-digit downloads, signaling 
+            a positive initial reception within the user community. This achievement served as a catalyst 
+            for the team’s ongoing efforts to refine and enhance the platform, ensuring its efficacy in 
+            facilitating efficient collaboration between volunteers and non-profit organizations.
+          <p>
+          </p>
+        </div>
       </div>
+    </div>
     </div>
   );
 }

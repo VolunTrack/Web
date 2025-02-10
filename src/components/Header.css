@@ -6,7 +6,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8px 16px;
     background-color: rgba(248, 249, 250, 1.0);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -33,11 +32,13 @@
     margin-right: 8px;
 }
 
-.header-left h1 {
+.header-left .title {
     margin: 0;
     color: #884efe;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .header-right {

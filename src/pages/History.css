@@ -1,140 +1,130 @@
-/* Global Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
-    line-height: 1.6;
-  }
-  
-  /* Header Section */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ffffff;
-    padding: 20px 40px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #5c6bc0;
-  }
-  
-  .nav a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-  }
-  
-  .nav a:hover {
-    color: #5c6bc0;
-  }
-  
-  /* Timeline Section */
-  .timeline-container {
-    display: flex;
-    max-width: 1200px;
-    margin: 40px auto;
-  }
-  
-  .timeline {
-    position: relative;
-    margin-right: 40px;
-    width: 100px;
-  }
-  
-  .timeline::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 30px;
-    width: 2px;
-    background-color: #ccc;
-  }
-  
-  .timeline-point {
-    display: flex;
-    align-items: center;
-    margin-bottom: 80px;
-    position: relative;
-  }
-  
-  .timeline-point span {
-    font-size: 18px;
-    font-weight: bold;
-    margin-right: 10px;
-  }
-  
-  .dot {
-    width: 14px;
-    height: 14px;
-    background-color: #5c6bc0;
-    border-radius: 50%;
-    position: relative;
-  }
-  
-  /* Timeline Content */
-  .timeline-content {
-    flex: 1;
-  }
-  
-  .card {
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .card p {
-    margin-bottom: 10px;
-    text-align: justify;
-  }
-  
-  /* Footer Section */
-  .footer {
-    background-color: #ffffff;
-    padding: 20px 40px;
-    margin-top: 40px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .footer-content {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-  }
-  
-  .footer-content h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .footer-content p {
-    margin: 5px 0;
-    font-size: 14px;
-    color: #666;
-  }
-  
-  .footer-note {
-    font-size: 12px;
-    color: #999;
-  }
-  
+/* History.css */
+
+.history {
+  align-items: center;
+  justify-content: center;
+}
+
+.history .banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #884efe;
+}
+
+.history .banner-container {
+  margin: 0 auto;
+  width: min(100%, 800px);
+  height: 10em;
+  padding: 40px 0;
+}
+
+.history .banner h1 {
+  color: #fff;
+  font-size: 2.5rem;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  margin-top: 1.3em;
+}
+
+.history .timeline-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0 auto;
+  margin-top: 1em;
+  width: min(100%, 800px);
+}
+
+/* 左侧时间线 */
+.history .timeline {
+  position: relative;
+  width: 100px; /* 可根据需要修改 */
+  margin-right: 40px;
+  /* 也可以在这里加一些修饰，比如一条竖线 */
+  /* background: linear-gradient(to bottom, #ccc 2px, transparent 2px) no-repeat center/2px 100%; */
+}
+
+/* 时间节点 */
+.history .timeline-point {
+  position: relative;
+  margin-bottom: 80px;
+  text-align: center;
+  margin-bottom: 17em;
+}
+
+.history .timeline-point span {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* 用于显示圆点 */
+.history .timeline-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #884efe;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+/* 可以针对不同年份节点做一些独特的样式 */
+.history .year-2025 span {
+  color: #884efe;
+}
+
+.history .year-2024 span {
+  color: #884efe;
+}
+
+.history .year-2023 span {
+  color: #884efe;
+}
+
+.history .year-2022 span {
+  color: #884efe;
+}
+
+/* 右侧内容区域 */
+.history .timeline-content {
+  flex: 1;
+}
+
+/* 内容卡片的基础样式 */
+.history .content-card {
+  background: #fff;
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: auto;
+  height: auto;
+}
+
+/* 不同年份的卡片可以有不同的色调区分 */
+.history .card-2025 {
+  border-left: 4px solid #884efe;
+}
+
+.history .card-2023 {
+  border-left: 4px solid #884efe;
+}
+
+.history .card-2022 {
+  border-left: 4px solid #884efe;
+}
+
+/* 文章标题 */
+.history .content-card h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+/* 文章段落 */
+.history .content-card p {
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 1em;
+}
