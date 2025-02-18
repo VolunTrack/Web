@@ -14,7 +14,7 @@
 
 .about-us .banner-container {
     margin: 0 auto;
-    width: min(100%, 800px);
+    width: min(100%, 1280px);
     /* height: 10em; */
     padding: 40px 0;
 }
@@ -47,8 +47,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f8f9fa;
-    width: min(100%, 800px);
+    /* background-color: #f8f9fa; */
+    width: min(100%, 1280px);
     margin: 0 auto;
 }
 
@@ -72,8 +72,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #f8f9fa;
-    width: min(100%, 800px);
+    /* background-color: #f8f9fa; */
+    width: min(100%, 1280px);
     margin: 0 auto;
 }
 
@@ -98,13 +98,13 @@
     flex-direction: column;
     /* align-items: center; */
     /* justify-content: center; */
-    background-color: #f8f9fa;
-    /* width: min(100%, 800px); */
+    /* background-color: #f8f9fa; */
+    /* width: min(100%, 1280px); */
     background-color: #884efe;
 }
 
 .about-us .contact-container {
-    width: min(100%, 800px);
+    width: min(100%, 1280px);
     margin: 0 auto;
 }
 

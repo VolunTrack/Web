@@ -5,7 +5,7 @@
 }
 
 .footer-container {
-    width: min(100%, 800px);
+    width: min(100%, 1280px);
     background-color: #ffffff;
     display: flex;
     flex-direction: row;

@@ -3,7 +3,7 @@
     flex-direction: row;
     height: 2.5em;
     align-items: center;
-    width: min(calc(100% - 2em), 800px);
+    width: min(calc(100% - 2em), 1280px);
     border-radius: 2em;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
     margin-top: -2em;

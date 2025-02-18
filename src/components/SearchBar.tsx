@@ -11,7 +11,8 @@ function SearchBar() {
                 <input className='search-keywd' type='text' placeholder='Search for volunteer opportunities' />
             </div>
             <div className='search-button-container'>
-                <img src='/assets/search-icon.png' alt='search-icon' />
+                <a href="/search-result">
+                <img src='/assets/search-icon.png' alt='search-icon' /></a>
             </div>
         </div>
     )

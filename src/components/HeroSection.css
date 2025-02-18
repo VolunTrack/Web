@@ -8,7 +8,7 @@
 .hero-container {
     display: flex;
     flex-direction: row;
-    width: min(100%, 800px);
+    width: min(100%, 1280px);
 }
 
 .hero-text-container {
