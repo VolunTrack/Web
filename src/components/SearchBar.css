@@ -20,6 +20,10 @@
     flex: 1;
 }
 
+.searchbar-container input {
+    outline: none;
+}
+
 .searchbar-container .search-city {
     width: 60%;
     border: none;
