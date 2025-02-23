@@ -75,12 +75,8 @@ function Home() {
                                     src="/assets/qr-code.png"
                                     alt="qr-code" />
                                 <img
-                                    className='qr-code-arrow'
-                                    src="/assets/qr-code-arrow.png"
-                                    alt="qr-code-arrow" />
-                                <img
-                                    className='qr-code-text'
-                                    src="/assets/qr-code-text.png"
+                                    className='qr-code-instruction'
+                                    src="/assets/qr-code-instruction.png"
                                     alt="qr-code-text" />
                             </div>
                         </div>

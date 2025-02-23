@@ -16,6 +16,17 @@ function Footer() {
                     <p>info@Voluntracks.com</p>
                     <p>CC: 1550385-0</p>
                     <p>(674)-674-6127</p>
+                    <div className='footer-social'>
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                            <img src="/assets/instagram.png" alt="instagram" />
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                            <img src="/assets/linkedin.png" alt="linkedin" />
+                        </a>
+                        <a href="https://www.github.com" target="_blank" rel="noopener noreferrer">
+                            <img src="/assets/github.png" alt="github" />
+                        </a>
+                    </div>
                 </div>
                 <div className='footer-right'>
                     <div className='footer-about'>
@@ -31,9 +42,9 @@ function Footer() {
                     </div>
                     <div className='footer-social'>
                         <b>Social</b>
-                        <p>Facebook</p>
-                        <p>Instagram</p>
-                        <p>Twitter/X</p>
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><p>Facebook</p></a>
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><p>Instagram</p></a>
+                        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><p>Twitter/X</p></a>
                     </div>
                 </div>
             </div>

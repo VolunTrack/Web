@@ -68,10 +68,13 @@ function SearchResult() {
                     </button>
                 </div>
                 <hr />
-                <p className='search-result-count'
-                >300 Results</p>
+                <div className='search-result-count'>
+                    <p>300 Results</p>
+                </div>
                 <div className='search-result-content'>
                     <div className='search-result-left'>
+                        <ResultCard />
+                        <ResultCard />
                         <ResultCard />
                         <ResultCard />
                         <ResultCard />
