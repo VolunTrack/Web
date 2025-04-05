@@ -3,31 +3,31 @@
 }
 
 .content-card-group h1 {
-    margin-bottom: 0;
+    font-size: 28px;
+    margin-bottom: 0.5em;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .content-card-group-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
 .content-card {
-    width: 230px;
-    height: 230px;
-    margin: 1em;
+    width: 30%;
+    aspect-ratio: 1 / 1; 
     position: relative;
 }
 
 .content-card-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    width: 230px;
-    height: 230px;
+    width: 100%;
+    aspect-ratio: 1 / 1; 
 }
 
 .content-card-image {

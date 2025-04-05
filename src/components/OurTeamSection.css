@@ -1,0 +1,199 @@
+/* OurTeamSection.css */
+.team {
+    background: #F8F5FF;
+    padding: 4rem 0;
+}
+
+.team-container {
+    width: min(90%, 1280px);
+    margin: 0 auto;
+    position: relative;
+}
+
+.team-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.team-subtitle {
+    color: #884efe;
+    font-size: 1.3rem;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-top: 0.5em;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.team-title {
+    width: 50%;
+    margin: 0 auto;
+    color: #884efe;
+    font-size: 2rem;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+    place-items: center;
+}
+
+/* 卡片容器 */
+.team-card {
+    perspective: 1000px;
+    width: 100%;
+    height: 380px;
+    cursor: pointer;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 8px;
+}
+
+.team-card.flipped {
+    z-index: 1;
+}
+
+.team-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+    transform-origin: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 正反面通用样式 */
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
+.member-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 3px solid rgba(136, 78, 254, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.member-name {
+    font-size: 1.3rem;
+    color: #2A2A2A;
+    font-weight: 600;
+}
+
+.member-role {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* 修改卡片背面布局 */
+.card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, #884EFE, #6C3DCE);
+    color: white;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 1rem;
+}
+
+.card-back-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bio-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    text-align: center;
+}
+
+.bio-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.member-bio {
+    text-align: center;
+    margin-top: 1rem;
+    overflow-y: auto;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+@media (max-width: 1024px) {
+    .team-title {
+        font-size: 2rem;
+    }
+
+    .team-card {
+        height: 340px;
+    }
+
+    .member-photo {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .team {
+        padding: 3rem 0;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .team-title {
+        font-size: 1.8rem;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-card {
+        height: 300px;
+    }
+
+    .card-front,
+    .card-back {
+        padding: 1.5rem;
+    }
+}

@@ -10,6 +10,8 @@
   align-items: center;
   justify-content: center;
   background-color: #884efe;
+  position: relative;
+  height: 350px;
 }
 
 .history .banner-container {
@@ -17,6 +19,7 @@
   width: min(80%, 1280px);
   height: 10em;
   padding: 40px 0;
+  max-width: 1080px;
 }
 
 .history .banner h1 {
@@ -26,6 +29,30 @@
   margin-top: 1.3em;
 }
 
+.banner-image {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  object-fit: cover;
+  bottom: 0;
+  right: 0;
+  opacity: 40%;
+  z-index: 1;
+}
+
+.banner-image-cover {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  object-fit: cover;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(to left,
+      transparent 20%,
+      #884efe);
+  z-index: 2;
+}
+
 .history .timeline-container {
   display: flex;
   align-items: flex-start;
@@ -33,12 +60,14 @@
   margin: 0 auto;
   margin-top: 1em;
   width: min(80%, 1280px);
+  max-width: 1080px;
 }
 
 /* 左侧时间线 */
 .history .timeline {
   position: relative;
-  width: 100px; /* 可根据需要修改 */
+  width: 100px;
+  /* 可根据需要修改 */
   margin-right: 40px;
   /* 也可以在这里加一些修饰，比如一条竖线 */
   /* background: linear-gradient(to bottom, #ccc 2px, transparent 2px) no-repeat center/2px 100%; */
@@ -97,8 +126,8 @@
   padding: 20px;
   margin-bottom: 40px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 270px;
 }
 
 /* 不同年份的卡片可以有不同的色调区分 */

@@ -10,6 +10,9 @@
     background-color: #FFFFFF;
     padding: 0.5em;
     border: 2px solid #d9d9d9;
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .searchbar-container {
@@ -66,6 +69,12 @@
     height: 2.5em;
     background-color: #884efe;
     border-radius: 50%;
+}
+
+.search-button-container button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .search-button-container img {

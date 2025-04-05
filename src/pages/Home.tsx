@@ -12,55 +12,58 @@ function Home() {
             <SearchBar />
             <div className='home-card-container'>
                 <div className='home-content-card-group-container'>
-                <ContentCardGroup
-                title='Community Life'
-                content={[
-                    {
-                        title: 'Support',
-                        description: 'Support - some text',
-                        imagePath: '/images/card-support.png',
-                    },
-                    {
-                        title: 'Culture',
-                        description: 'Culture - some text',
-                        imagePath: '/images/card-culture.png',
-                    },
-                    {
-                        title: 'Assistance',
-                        description: 'Assistance - some text',
-                        imagePath: '/images/card-assistance.png',
-                    },
-                ]} />
-                <ContentCardGroup
-                title='Personal Growth'
-                content={[
-                    {
-                        title: 'Learning',
-                        description: 'Learning - some text',
-                        imagePath: '/images/card-learning.png',
-                    },
-                    {
-                        title: 'Leadership',
-                        description: 'Leadership - some text',
-                        imagePath: '/images/card-leadership.png',
-                    },
-                    {
-                        title: 'Development',
-                        description: 'Development - some text',
-                        imagePath: '/images/card-development.png',
-                    },
-                ]} />
+                    <ContentCardGroup
+                        title='Community Life'
+                        content={[
+                            {
+                                title: 'Support',
+                                description: 'Support - some text',
+                                imagePath: '/images/card-support.png',
+                            },
+                            {
+                                title: 'Culture',
+                                description: 'Culture - some text',
+                                imagePath: '/images/card-culture.png',
+                            },
+                            {
+                                title: 'Assistance',
+                                description: 'Assistance - some text',
+                                imagePath: '/images/card-assistance.png',
+                            },
+                        ]} />
+                    <ContentCardGroup
+                        title='Personal Growth'
+                        content={[
+                            {
+                                title: 'Learning',
+                                description: 'Learning - some text',
+                                imagePath: '/images/card-learning.png',
+                            },
+                            {
+                                title: 'Leadership',
+                                description: 'Leadership - some text',
+                                imagePath: '/images/card-leadership.png',
+                            },
+                            {
+                                title: 'Development',
+                                description: 'Development - some text',
+                                imagePath: '/images/card-development.png',
+                            },
+                        ]} />
                 </div>
 
                 <div className='learn-more'>
                     <div className='home-text-container'>
                         <div className='home-text'>
                             <h1>Your best partner for connecting with non-profits and building community</h1>
-                            <p>At Voluntrack, we connect volunteers with non-profits through innovative technology to drive meaningful community impact. As a Canada Not-for-profit, we’re dedicated to fostering positive change.</p>
+                            <p>At Voluntrack, we connect volunteers with non-profits through innovative technology to drive meaningful community impact. </p>
+                            <p>As a Canada Not-for-profit, we’re dedicated to fostering positive change.</p>
                         </div>
-                        <div className='home-place-holder' />
+                        <a href="/about-us">
+                            <button className="home-button">Learn More About Us</button>
+                        </a>
                     </div>
-                    {/* <img src='/assets/hands.png' alt='hands' className='home-image' /> */}
+                    <img src='/assets/hands.png' alt='hands' className='home-image' />
                 </div>
 
                 <div className='download-app'>

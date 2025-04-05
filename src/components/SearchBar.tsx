@@ -31,6 +31,11 @@ function SearchBar() {
     const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
 
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault(); // prevent page reload
+        window.location.href = `/search-result`; // redirect to your search result page
+    };  
+
     // 监听输入框变化
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
@@ -55,12 +60,17 @@ function SearchBar() {
         setShowSuggestions(false);
     }
     return (
-        <div className='searchbar'>
+        <form className='searchbar' onSubmit={handleSubmit}>
             <div className='searchbar-container'>
                 <div className='search-city'>
-                    <input type='text' placeholder='Search for cities or provinces' 
-                    value={inputValue} onChange={handleInputChange} onFocus={() => setShowSuggestions(filteredSuggestions.length >0)}
-                    onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}/>
+                    <input
+                        type='text'
+                        placeholder='Search for cities or provinces'
+                        value={inputValue}
+                        onChange={handleInputChange}
+                        onFocus={() => setShowSuggestions(filteredSuggestions.length > 0)}
+                        onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+                    />
                     {showSuggestions && (
                         <div className='suggestions-dropdown'>
                             {filteredSuggestions.map((suggestion, index) => (
@@ -75,10 +85,12 @@ function SearchBar() {
                 <input className='search-keywd' type='text' placeholder='Search for volunteer opportunities' />
             </div>
             <div className='search-button-container'>
-                <a href="/search-result">
-                <img src='/assets/search-icon.png' alt='search-icon' /></a>
+                <button type='submit'>
+                    <img src='/assets/search-icon.png' alt='search-icon' />
+                </button>
             </div>
-        </div>
+        </form>
+
     )
 }
 

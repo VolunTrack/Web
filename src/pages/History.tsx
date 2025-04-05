@@ -8,6 +8,8 @@ function History() {
       <div className="banner">
         <div className="banner-container">
         <h1>Our History</h1>
+        <img src='/assets/history-banner.png' alt='banner' className='banner-image' />
+        <div className="banner-image-cover" />
         </div>
       </div>
     <div className="timeline-container">
