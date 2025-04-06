@@ -1,14 +1,64 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import './SearchBar.css';
 
 function SearchBar() {
-  // 1) City suggestions
-  const suggestions_city = ['Toronto, ON', 'Mississauga, ON', 'Brampton, ON', 'GTA, ON'];
+  // ------------------ City Suggestions (Now Fetched) ------------------
+  // 1) We remove your old static "suggestions_city" array.
+  //    Instead, we store all Canadian cities here after the fetch.
+  const [cities, setCities] = useState<string[]>([]);
+
   const [inputValue, setInputValue] = useState('');
   const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  // 2) Volunteering Interests
+  // Example fetch using countriesnow.space:
+  const fetchCities = useCallback(async () => {
+    try {
+      const response = await fetch('https://countriesnow.space/api/v0.1/countries');
+      const data = await response.json();
+      
+      // Find Canada
+      const canada = data.data.find((country: any) => country.country === 'Canada');
+      // If found, store its entire city list in state
+      if (canada?.cities) {
+        setCities(canada.cities);
+      }
+    } catch (error) {
+      console.error('Error fetching cities:', error);
+    }
+  }, []);
+
+  // Fetch the list of Canadian cities once on component mount
+  useEffect(() => {
+    fetchCities();
+  }, [fetchCities]);
+
+  // -------------------- City Input Logic (Unchanged) --------------------
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setInputValue(value);
+
+    // If empty, hide suggestions
+    if (value.trim() === '') {
+      setFilteredSuggestions([]);
+      setShowSuggestions(false);
+      return;
+    }
+
+    // Filter from the fetched city list
+    const filtered = cities.filter(city =>
+      city.toLowerCase().includes(value.toLowerCase())
+    );
+    setFilteredSuggestions(filtered);
+    setShowSuggestions(filtered.length > 0);
+  };
+
+  const handleSuggestionClick = (city: string) => {
+    setInputValue(city);
+    setShowSuggestions(false);
+  };
+
+  // -------------------- Volunteering Interests (Same as Before) --------------------
   const volunteeringInterests = [
     {
       category: "Community Life",
@@ -26,34 +76,8 @@ function SearchBar() {
   ];
   const [showInterestsDropdown, setShowInterestsDropdown] = useState(false);
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
-
-  // For optional filtering within the dropdown
   const [searchInterestText, setSearchInterestText] = useState("");
 
-  // -------------------- City Input Logic --------------------
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setInputValue(value);
-
-    if (value.trim() === '') {
-      setFilteredSuggestions([]);
-      setShowSuggestions(false);
-      return;
-    }
-
-    const filtered = suggestions_city.filter(city =>
-      city.toLowerCase().includes(value.toLowerCase())
-    );
-    setFilteredSuggestions(filtered);
-    setShowSuggestions(filtered.length > 0);
-  };
-
-  const handleSuggestionClick = (city: string) => {
-    setInputValue(city);
-    setShowSuggestions(false);
-  };
-
-  // ---------------- Volunteering Interests Logic ----------------
   const toggleInterestsDropdown = () => {
     setShowInterestsDropdown(!showInterestsDropdown);
   };
@@ -66,7 +90,6 @@ function SearchBar() {
     }
   };
 
-  // Optional: filter subcategories by user typing in the dropdown
   const handleInterestTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInterestText(e.target.value);
   };
@@ -82,9 +105,16 @@ function SearchBar() {
             placeholder='Search for cities or provinces'
             value={inputValue}
             onChange={handleInputChange}
-            onFocus={() => setShowSuggestions(filteredSuggestions.length > 0)}
+            // Show suggestions only if we already have some results
+            onFocus={() => {
+              if (filteredSuggestions.length > 0) {
+                setShowSuggestions(true);
+              }
+            }}
+            // Delay hiding so clicks can register
             onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
           />
+
           {showSuggestions && (
             <div className='suggestions-dropdown'>
               {filteredSuggestions.map((suggestion, index) => (
@@ -111,7 +141,7 @@ function SearchBar() {
 
           {showInterestsDropdown && (
             <div className='suggestions-dropdown interests-dropdown'>
-              {/* OPTIONAL: Input to filter subcategories in real time */}
+              {/* OPTIONAL: filter subcategories */}
               {/* <input
                 type="text"
                 placeholder="Filter interests..."
@@ -121,7 +151,7 @@ function SearchBar() {
               /> */}
 
               {volunteeringInterests.map((catObj, i) => {
-                // If filtering, reduce subCategories
+                // If filtering subcategories, apply here:
                 const matchedSubs = catObj.subCategories.filter(sub =>
                   sub.toLowerCase().includes(searchInterestText.toLowerCase())
                 );
