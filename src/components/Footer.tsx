@@ -31,26 +31,26 @@ function Footer() {
                 <div className='footer-right'>
                     <div className='footer-about'>
                         <b>About</b>
-                        <p>Team</p>
-                        <p>History</p>
-                        <p>Careers</p>
+                        <a>Team</a>
+                        <a>History</a>
+                        <a>Careers</a>
                     </div>
                     <div className='footer-privacy'>
                         <b>Privacy</b>
-                        <p>Privacy Policy</p>
-                        <p>Terms and Conditions</p>
+                        <a>Privacy Policy</a>
+                        <a>Terms and Conditions</a>
                     </div>
                     <div className='footer-social'>
                         <b>Social</b>
-                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><p>Facebook</p></a>
-                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><p>Instagram</p></a>
-                        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><p>Twitter/X</p></a>
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+                        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">Twitter/X</a>
                     </div>
                 </div>
             </div>
             <div className='footer-bottom'>
-                <p>©VolunTrack Org. is a registered Canadian Not-for-profit #716778212</p>
-                <p>Copyright © 2024 VolunTrack Org.</p>
+                <a>©VolunTrack Org. is a registered Canadian Not-for-profit #716778212</a>
+                <a>Copyright © 2024 VolunTrack Org.</a>
             </div>
         </div>
     )

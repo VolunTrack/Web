@@ -25,6 +25,15 @@
     flex-direction: row;
     align-items: center;
     text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.header-left:hover {
+    box-shadow: 0 4px 12px rgba(136, 78, 254, 0.15);
+    transform: translateY(-2px);
+    background-color: rgba(136, 78, 254, 0.05);
 }
 
 .header-left img {
@@ -52,6 +61,16 @@
     color: #2b2b2b;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.header-right a:hover {
+    color: #884efe;
+    background-color: rgba(136, 78, 254, 0.1);
+    box-shadow: 0 2px 8px rgba(136, 78, 254, 0.2);
+    transform: translateY(-1px);
 }
 
 .header-right a.active {

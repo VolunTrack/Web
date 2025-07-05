@@ -7,7 +7,15 @@ function History() {
     <div className="history">
       <div className="banner">
         <div className="banner-container">
-        <h1>Our History</h1>
+          <div className="banner-content">
+            <h1>Our History</h1>
+          </div>
+          <img 
+            src="/assets/history-hero-bg.png" 
+            alt="history background" 
+            className="banner-bg-image"
+          />
+          <div className="banner-overlay"></div>
         </div>
       </div>
     <div className="timeline-container">

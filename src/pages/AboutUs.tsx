@@ -114,7 +114,7 @@ function AboutUs() {
               greater efficacy, Voluntrack is your partner in creating a
               stronger, more connected community.
             </p>
-            <button>
+            <button onClick={() => window.open('mailto:info@voluntracks.com')}>
               Contact us
             </button>
           </div>
