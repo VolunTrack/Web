@@ -68,7 +68,7 @@ function Home() {
                 <div className='download-app'>
                     <div className='download-app-container'>
                         <div className='download-app-text'>
-                            <h1>Capture the colunteer experience with Voluntrack App!</h1>
+                            <h1>Capture the volunteer experience with Voluntrack App!</h1>
                             <p>we are developing exciting features to help you find your next adventure and more</p>
                             <p>Stay tuned! there are much more to come!</p>
                             <div className='qr-code-container'>

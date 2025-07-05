@@ -32,15 +32,15 @@ function ContentCard({ content }: { content: Content }) {
     return (
         <div className='content-card'>
             <div className='content-card-container'>
-                <div className='content-card-image'>
-                    <img src={imagePath===undefined ? '': imagePath}
+                <img 
+                    src={imagePath === undefined ? '' : imagePath}
                     alt='content-card-image'
-                    className='content-card-image' />
-                </div>
-                {/* <div className='content-card-text'>
+                    className='content-card-image' 
+                />
+                <div className='content-card-text'>
                     <h2>{title}</h2>
                     <p>{description}</p>
-                </div> */}
+                </div>
             </div>
         </div>
     )
