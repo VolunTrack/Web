@@ -86,7 +86,7 @@ function SearchBar() {
             onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
           />
           {showSuggestions && (
-            <div className='suggestions-dropdown'>
+            <div className={`suggestions-dropdown ${showSuggestions ? 'show' : ''}`}>
               {filteredSuggestions.map((suggestion, index) => (
                 <div key={index} onMouseDown={() => handleSuggestionClick(suggestion)}>
                   {suggestion}
@@ -110,7 +110,7 @@ function SearchBar() {
           />
 
           {showInterestsDropdown && (
-            <div className='suggestions-dropdown interests-dropdown'>
+            <div className={`suggestions-dropdown interests-dropdown ${showInterestsDropdown ? 'show' : ''}`}>
               {/* OPTIONAL: Input to filter subcategories in real time */}
               {/* <input
                 type="text"

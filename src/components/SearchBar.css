@@ -10,6 +10,12 @@
   background-color: #FFFFFF;
   padding: 0.5em;
   border: 2px solid #d9d9d9;
+  transition: all 0.2s ease;
+}
+
+.searchbar:hover {
+  border-color: #884efe;
+  box-shadow: 0 4px 12px rgba(136, 78, 254, 0.1);
 }
 
 .searchbar-container {
@@ -24,6 +30,15 @@
 .searchbar-container input {
   outline: none;
   border: none;
+  transition: all 0.2s ease;
+}
+
+.searchbar-container input:hover {
+  background-color: rgba(136, 78, 254, 0.03);
+}
+
+.searchbar-container input:focus {
+  background-color: rgba(136, 78, 254, 0.05);
 }
 
 .searchbar-container .search-city {
@@ -40,6 +55,8 @@
   font-size: 1em;
   font-family: Arial, Helvetica, sans-serif;
   color: #2b2b2b;
+  padding: 0.3em 0.5em;
+  border-radius: 0.5em;
 }
 
 .searchbar-container .divider {
@@ -48,6 +65,11 @@
   background-color: #2b2b2b;
   margin-left: 1em;
   margin-right: 1em;
+  transition: all 0.2s ease;
+}
+
+.searchbar:hover .divider {
+  background-color: #884efe;
 }
 
 .searchbar-container .search-keywd {
@@ -55,6 +77,13 @@
   font-size: 1em;
   font-family: Arial, Helvetica, sans-serif;
   color: #2b2b2b;
+  padding: 0.3em 0.5em;
+  border-radius: 0.5em;
+  transition: all 0.2s ease;
+}
+
+.searchbar-container .search-keywd:hover {
+  background-color: rgba(136, 78, 254, 0.03);
 }
 
 .search-button-container {
@@ -66,11 +95,27 @@
   height: 2.5em;
   background-color: #884efe;
   border-radius: 50%;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.search-button-container:hover {
+  background-color: #7c3aed;
+  box-shadow: 0 4px 12px rgba(136, 78, 254, 0.2);
+}
+
+.search-button-container:active {
+  transform: scale(0.98);
 }
 
 .search-button-container img {
   width: 1.5em;
   height: 1.5em;
+  transition: all 0.2s ease;
+}
+
+.search-button-container:hover img {
+  transform: scale(1.05);
 }
 
 /* 🔹 搜索建议框 */
@@ -89,6 +134,15 @@
   margin-top: 20px;
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  */
   z-index: 1000;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: all 0.2s ease;
+}
+
+.suggestions-dropdown.show {
+  opacity: 1;
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .suggestions-dropdown div {
@@ -97,9 +151,73 @@
   font-size: 1em;
   color: #2b2b2b;
   font-family: Arial, Helvetica, sans-serif;
-  transition: 0.2s;
+  transition: all 0.2s ease;
 }
 
 .suggestions-dropdown div:hover {
-  background: #f2f2f2;
+  background: #f8f4ff;
+  color: #884efe;
+}
+
+/* 🔹 志愿服务兴趣下拉框特定样式 */
+.interests-dropdown {
+  max-height: 300px;
+  padding: 1em;
+}
+
+.category-group {
+  margin-bottom: 1em;
+}
+
+.category-name {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #884efe;
+  margin-bottom: 0.5em;
+  padding: 0.5em 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.subcategories {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+.subcat-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5em;
+  padding: 0.3em 0.5em;
+  cursor: pointer;
+  border-radius: 0.5em;
+  transition: all 0.2s ease;
+}
+
+.subcat-label:hover {
+  background: #f8f4ff;
+}
+
+.subcat-label input[type="checkbox"] {
+  margin: 0;
+  width: 1.2em;
+  height: 1.2em;
+  accent-color: #884efe;
+  cursor: pointer;
+}
+
+.subcat-label span {
+  font-size: 0.9em;
+  color: #2b2b2b;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+
+.subcat-label:hover span {
+  color: #884efe;
+}
+
+.subcat-label input[type="checkbox"]:checked + span {
+  color: #884efe;
+  font-weight: 500;
 }
