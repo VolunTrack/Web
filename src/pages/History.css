@@ -128,3 +128,8 @@
   color: #555;
   margin-bottom: 1em;
 }
+
+/* 移除历史页面内容卡片的渐变蒙版 */
+.history .content-card::before {
+  display: none;
+}
