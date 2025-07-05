@@ -76,7 +76,7 @@ function SearchBar() {
             </div>
             <div className='search-button-container'>
                 <a href="/search-result">
-                <img src='/assets/search-icon.png' alt='search-icon' /></a>
+                <img src='/assets/search-icon.svg' alt='search-icon' /></a>
             </div>
         </div>
     )
