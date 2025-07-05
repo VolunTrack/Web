@@ -1,0 +1,113 @@
+[
+  {
+    "id": 1,
+    "title": "2024 Summer Camp Volunteer",
+    "organization": "York Region Educational Services",
+    "location": "Markham/Thornhill",
+    "category": "Education and Literacy",
+    "duration": "1 - 4 weeks",
+    "shortDescription": "Eco Volunteering in Wildlife & Marine Conservation. Uncover the whole big picture of our Eco-System for a better understanding of Nature & learn how to make a difference!",
+    "detailedDescription": [
+      "Eco Volunteering in Wildlife & Marine Conservation. Uncover the whole big picture of our Eco-System for a better understanding of Nature & learn how to make a difference!",
+      "The CSE's Community Youth Mentorship programs provide youth across Peel Region with UTM role models to develop a sense of community, identity and preparedness to thrive!",
+      "Serving as role mentors, UTM students will be matched with youth groups from underrepresented communities, providing their insight, experience and guidance through virtual programming that is delivered weekly.",
+      "Youth in the program are from age 8-17 who are invested in the benefits of mentoring. Mentees and mentors are matched based on common interest, cultural background, geographic proximity, and areas of need as well as similar gender."
+    ],
+    "benefits": [
+      "Improve communication and personal skills by facilitating virtual mentoring sessions with youth participants",
+      "Reinforce your own study skills and knowledge of subjects by working in small teams to develop content and address mentee concerns",
+      "Be part of an online mentorship community with other students in mentorship programs. This is an opportunity to make connections, build relationships and to be part of a community",
+      "Gain new perspective, knowledge and experience",
+      "Learn to reflect on your goals, values, and experiences",
+      "Make friends and feel connected to the UTM community"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Community Health Outreach",
+    "organization": "Red Cross",
+    "location": "Toronto/GTA",
+    "category": "Healthcare and Wellness",
+    "duration": "2 - 3 months",
+    "shortDescription": "Join our community health outreach program to help provide essential health services and education to underserved communities.",
+    "detailedDescription": [
+      "Join our community health outreach program to help provide essential health services and education to underserved communities.",
+      "As a volunteer, you will work alongside healthcare professionals to deliver health screenings, educational workshops, and wellness programs.",
+      "This role involves direct interaction with community members, helping to bridge the gap between healthcare services and those who need them most.",
+      "You'll gain valuable experience in public health, community engagement, and healthcare delivery while making a meaningful impact."
+    ],
+    "benefits": [
+      "Hands-on experience in public health and community outreach",
+      "Training in health screening and education techniques",
+      "Opportunity to work with diverse populations",
+      "Networking with healthcare professionals",
+      "Certificate of completion for volunteer hours"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Environmental Conservation Project",
+    "organization": "XYZ Org",
+    "location": "Mississauga/Brampton",
+    "category": "Environmental",
+    "duration": "3+ months",
+    "shortDescription": "Participate in hands-on environmental conservation activities including tree planting, habitat restoration, and environmental education programs.",
+    "detailedDescription": [
+      "Participate in hands-on environmental conservation activities including tree planting, habitat restoration, and environmental education programs.",
+      "Work with our team to restore local ecosystems, monitor wildlife populations, and educate the public about environmental stewardship.",
+      "This long-term commitment involves both fieldwork and educational components, perfect for those passionate about environmental protection.",
+      "Volunteers will learn about local ecology, conservation techniques, and sustainable practices while contributing to meaningful environmental projects."
+    ],
+    "benefits": [
+      "Comprehensive training in conservation techniques",
+      "Outdoor work experience in natural settings",
+      "Environmental education and outreach skills",
+      "Certification in environmental stewardship",
+      "Networking opportunities with environmental professionals"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Senior Support Services",
+    "organization": "ABCDE Org",
+    "location": "Richmond Hill/Newmarket",
+    "category": "Community Services",
+    "duration": "1 - 2 months",
+    "shortDescription": "Provide companionship and support services to elderly community members through friendly visits, recreational activities, and assistance with daily tasks.",
+    "detailedDescription": [
+      "Provide companionship and support services to elderly community members through friendly visits, recreational activities, and assistance with daily tasks.",
+      "Our program matches volunteers with seniors in the community to reduce social isolation and provide practical support.",
+      "Activities include regular visits, help with technology, grocery shopping assistance, and organizing social events.",
+      "This rewarding volunteer opportunity allows you to make a real difference in the lives of older adults while gaining valuable interpersonal skills."
+    ],
+    "benefits": [
+      "Meaningful connections with community elders",
+      "Training in elder care and communication",
+      "Flexible scheduling to fit your availability",
+      "Volunteer appreciation events and recognition",
+      "Skills development in caregiving and support services"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Youth Sports Coaching",
+    "organization": "York Region Educational Services",
+    "location": "Aurora/Newmarket",
+    "category": "Sports and Recreation",
+    "duration": "1 - 4 weeks",
+    "shortDescription": "Coach and mentor youth in various sports activities, promoting teamwork, physical fitness, and positive youth development.",
+    "detailedDescription": [
+      "Coach and mentor youth in various sports activities, promoting teamwork, physical fitness, and positive youth development.",
+      "Work with children and teenagers aged 8-16 in organized sports programs including soccer, basketball, and track and field.",
+      "Responsibilities include planning practice sessions, teaching fundamental skills, and fostering a positive, inclusive environment.",
+      "This role is perfect for those with athletic experience who want to give back to the community and inspire young athletes."
+    ],
+    "benefits": [
+      "Coaching certification and training provided",
+      "Experience working with diverse youth populations",
+      "Leadership and mentoring skills development",
+      "Networking with sports and education professionals",
+      "Opportunity to inspire the next generation of athletes"
+    ]
+  }
+] 

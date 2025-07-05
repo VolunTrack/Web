@@ -38,7 +38,7 @@ function AboutUs() {
         <div className="right">
           <h2>Our Vision</h2>
           <p>
-            We strive to foster positive
+             to foster positive
             changes within communities.
           </p>
           <p>

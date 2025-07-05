@@ -1,7 +1,7 @@
 // filename: Home.tsx
 
 import ContentCardGroup from '../components/ContentCard';
-import FilterChoice from '../components/FilterChoice';
+// import FilterChoice from '../components/FilterChoice';
 import HeroSection from '../components/HeroSection';
 import SearchBar from '../components/SearchBar';
 import './Home.css';
@@ -11,7 +11,7 @@ function Home() {
         <div className='home'>
             <HeroSection />
             <SearchBar />
-            <FilterChoice />
+            {/* <FilterChoice /> */}
             <div className='home-card-container'>
                 <div className='home-content-card-group-container'>
                 <ContentCardGroup

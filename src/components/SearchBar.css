@@ -159,6 +159,16 @@
   color: #884efe;
 }
 
+.suggestions-dropdown .suggestion-item.selected {
+  background: #884efe;
+  color: white;
+}
+
+.suggestions-dropdown .suggestion-item.selected:hover {
+  background: #7c3aed;
+  color: white;
+}
+
 /* 🔹 志愿服务兴趣下拉框特定样式 */
 .interests-dropdown {
   max-height: 300px;

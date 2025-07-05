@@ -1,58 +1,67 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './SearchResult.css';
 import SearchBar from '../components/SearchBar';
+import { volunteerService, VolunteerOpportunity, SearchFilters } from '../services/volunteerService';
+import { FirebaseConfigDebug } from '../debug/FirebaseConfig';
 
-function ResultCard() {
+interface ResultCardProps {
+  volunteer: VolunteerOpportunity;
+  onClick: () => void;
+}
+
+function ResultCard({ volunteer, onClick }: ResultCardProps) {
   return (
-    <div className='result-card'>
-      <h2>2024 Summer Camp Volunteer</h2>
+    <div className='result-card' onClick={onClick}>
+      <h2>{volunteer.title}</h2>
       <div className='result-card-info'>
         <div>
           <img src="/assets/corporate_fare.png" alt="icon" />
-          <p>York Region Educational Services</p>
+          <p>{volunteer.organization}</p>
         </div>
         <div>
           <img src="/assets/place.png" alt="icon" />
-          <p>Markham/Thornhill</p>
+          <p>{volunteer.location}</p>
         </div>
         <div>
           <img src="/assets/category.png" alt="icon" />
-          <p>Education and Literacy</p>
+          <p>{volunteer.category}</p>
         </div>
         <div>
           <img src="/assets/access_time.png" alt="icon" />
-          <p>1 - 4 weeks</p>
+          <p>{volunteer.duration}</p>
         </div>
       </div>
       <div className='result-card-description'>
-        <p>
-          Eco Volunteering in Wildlife & Marine Conservation. Uncover the whole big picture of our Eco-System for a better understanding of Nature & learn how to make a difference!
-        </p>
+        <p>{volunteer.shortDescription}</p>
       </div>
     </div>
   );
 }
 
-function ResultDetail() {
+interface ResultDetailProps {
+  volunteer: VolunteerOpportunity;
+}
+
+function ResultDetail({ volunteer }: ResultDetailProps) {
   return (
     <div className='result-detail'>
       <div className='result-detail-info'>
-        <h2>2024 Summer Camp Volunteer</h2>
+        <h2>{volunteer.title}</h2>
         <div>
           <img src="/assets/corporate_fare.png" alt="icon" />
-          <p>York Region Educational Services</p>
+          <p>{volunteer.organization}</p>
         </div>
         <div>
           <img src="/assets/place.png" alt="icon" />
-          <p>Markham/Thornhill</p>
+          <p>{volunteer.location}</p>
         </div>
         <div>
           <img src="/assets/category.png" alt="icon" />
-          <p>Education and Literacy</p>
+          <p>{volunteer.category}</p>
         </div>
         <div>
           <img src="/assets/access_time.png" alt="icon" />
-          <p>1 - 4 weeks</p>
+          <p>{volunteer.duration}</p>
         </div>
         <button>
           Apply Now
@@ -61,28 +70,14 @@ function ResultDetail() {
       </div>
       <hr />
       <div className='result-detail-description'>
-        <p>
-          Eco Volunteering in Wildlife & Marine Conservation. Uncover the whole big picture of our Eco-System for a better understanding of Nature & learn how to make a difference!
-        </p>
-        <p>
-          The CSE's Community Youth Mentorship programs provide youth across Peel Region with UTM role models to develop a sense of community, identity and preparedness to thrive!
-        </p>
-        <p>
-          Serving as role mentors, UTM students will be matched with youth groups from underrepresented communities, providing their insight, experience and guidance through virtual programming that is delivered weekly.
-        </p>
-        <p>
-          Youth in the program are from age 8-17 who are invested in the benefits of mentoring. Mentees and mentors are matched based on common interest, cultural background, geographic proximity, and areas of need as well as similar gender.
-        </p>
-        <p>Benefits of being a mentor in our program:</p>
+        {volunteer.detailedDescription.map((paragraph, index) => (
+          <p key={index}>{paragraph}</p>
+        ))}
+        <p>Benefits of being a volunteer in our program:</p>
         <ul>
-          <li>Improve communication and personal skills by facilitating virtual mentoring sessions with youth participants</li>
-          <li>Reinforce your own study skills and knowledge of subjects by working in small teams to develop content and address mentee concerns</li>
-          <li>
-            Be part of an online mentorship community with other students in mentorship programs. This is an opportunity to make connections, build relationships and to be part of a community
-          </li>
-          <li>Gain new perspective, knowledge and experience</li>
-          <li>Learn to reflect on your goals, values, and experiences</li>
-          <li>Make friends and feel connected to the UTM community</li>
+          {volunteer.benefits.map((benefit, index) => (
+            <li key={index}>{benefit}</li>
+          ))}
         </ul>
       </div>
     </div>
@@ -93,6 +88,57 @@ function SearchResult() {
   // State for toggling each dropdown
   const [orgOpen, setOrgOpen] = useState(false);
   const [durationOpen, setDurationOpen] = useState(false);
+  
+  // State for managing volunteer data
+  const [volunteers, setVolunteers] = useState<VolunteerOpportunity[]>([]);
+  const [selectedVolunteer, setSelectedVolunteer] = useState<VolunteerOpportunity | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // State for filters
+  const [filters, setFilters] = useState<SearchFilters>({});
+  const [availableFilters, setAvailableFilters] = useState<{
+    organizations: string[];
+    categories: string[];
+    locations: string[];
+    durations: string[];
+  }>({
+    organizations: [],
+    categories: [],
+    locations: [],
+    durations: []
+  });
+
+  // Load volunteer data on component mount
+  useEffect(() => {
+    const loadVolunteers = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        
+        // 获取志愿者数据
+        const { volunteers: fetchedVolunteers } = await volunteerService.getAllVolunteers(filters);
+        setVolunteers(fetchedVolunteers);
+        
+        // 设置默认选中的志愿者
+        if (fetchedVolunteers.length > 0) {
+          setSelectedVolunteer(fetchedVolunteers[0]);
+        }
+        
+        // 获取筛选选项
+        const filterOptions = await volunteerService.getFilterOptions();
+        setAvailableFilters(filterOptions);
+        
+      } catch (err) {
+        console.error('加载志愿者数据失败:', err);
+        setError('加载数据失败，请稍后重试');
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    loadVolunteers();
+  }, [filters]);
 
   const toggleOrg = () => {
     setOrgOpen(!orgOpen);
@@ -104,114 +150,87 @@ function SearchResult() {
     setOrgOpen(false); // close the other dropdown
   };
 
+  const handleCardClick = (volunteer: VolunteerOpportunity) => {
+    setSelectedVolunteer(volunteer);
+  };
+
+  // 处理组织筛选器变化
+  const handleOrganizationFilter = (organization: string, checked: boolean) => {
+    setFilters(prev => {
+      const organizations = prev.organizations || [];
+      if (checked) {
+        return { ...prev, organizations: [...organizations, organization] };
+      } else {
+        return { ...prev, organizations: organizations.filter(org => org !== organization) };
+      }
+    });
+  };
+
+  // 处理期间筛选器变化
+  const handleDurationFilter = (duration: string) => {
+    setFilters(prev => ({
+      ...prev,
+      durations: [duration]
+    }));
+    setDurationOpen(false);
+  };
+
+  // 加载状态
+  if (loading) {
+    return (
+      <div className='search-result'>
+        <div className='search-result-container'>
+          <SearchBar />
+          <div className='loading-container'>
+            <p>正在加载志愿者机会...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // 错误状态
+  if (error) {
+    return (
+      <div className='search-result'>
+        <div className='search-result-container'>
+          <SearchBar />
+          <div className='error-container'>
+            <p>{error}</p>
+            <button onClick={() => window.location.reload()}>重试</button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className='search-result'>
+      <FirebaseConfigDebug />
       <div className='search-result-container'>
         <SearchBar />
 
         <div className='button-container'>
           {/* Organization button + dropdown */}
-          <div style={{ position: 'relative' }}>
+          <div className="dropdown-container">
             <button onClick={toggleOrg}>Organization</button>
             {orgOpen && (
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '3.5em',
-                  left: '0',
-                  backgroundColor: '#fff',
-                  border: '1px solid black',
-                  borderRadius: '1.5em',
-                  padding: '1em',
-                  zIndex: 999,
-                  minWidth: '200px'
-                }}
-              >
-                {/* Red Cross */}
-                <div style={{ marginBottom: '1em' }}>
-                  <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
-                    <input type="checkbox" name="orgMain" style={{ marginRight: '0.5em' }} />
-                    Red Cross
-                  </label>
-                  {/* Subcategories (example) */}
-                  <div style={{ marginLeft: '1.8em', marginTop: '0.3em' }}>
-                    <label style={{ display: 'block', cursor: 'pointer' }}>
-                      <input type="checkbox" name="orgSub" style={{ marginRight: '0.5em' }} />
-                      Local Branch
-                    </label>
-                    <label style={{ display: 'block', cursor: 'pointer' }}>
-                      <input type="checkbox" name="orgSub" style={{ marginRight: '0.5em' }} />
-                      International
+              <div className="dropdown-menu">
+                {availableFilters.organizations.map((org) => (
+                  <div key={org} className="dropdown-item">
+                    <label className="dropdown-main-label">
+                      <input 
+                        type="checkbox" 
+                        name="orgMain" 
+                        checked={filters.organizations?.includes(org) || false}
+                        onChange={(e) => handleOrganizationFilter(org, e.target.checked)}
+                      />
+                      {org}
                     </label>
                   </div>
-                </div>
-
-                {/* York Region Educational Services */}
-                <div style={{ marginBottom: '1em' }}>
-                  <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
-                    <input type="checkbox" name="orgMain" style={{ marginRight: '0.5em' }} />
-                    York Region Educational Services
-                  </label>
-                  <div style={{ marginLeft: '1.8em', marginTop: '0.3em' }}>
-                    <label style={{ display: 'block', cursor: 'pointer' }}>
-                      <input type="checkbox" name="orgSub" style={{ marginRight: '0.5em' }} />
-                      K-12
-                    </label>
-                    <label style={{ display: 'block', cursor: 'pointer' }}>
-                      <input type="checkbox" name="orgSub" style={{ marginRight: '0.5em' }} />
-                      Adult Education
-                    </label>
-                  </div>
-                </div>
-
-                {/* XYZ Org */}
-                <div style={{ marginBottom: '1em' }}>
-                  <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
-                    <input type="checkbox" name="orgMain" style={{ marginRight: '0.5em' }} />
-                    XYZ Org
-                  </label>
-                  <div style={{ marginLeft: '1.8em', marginTop: '0.3em' }}>
-                    <label style={{ display: 'block', cursor: 'pointer' }}>
-                      <input type="checkbox" name="orgSub" style={{ marginRight: '0.5em' }} />
-                      Sub-division A
-                    </label>
-                    <label style={{ display: 'block', cursor: 'pointer' }}>
-                      <input type="checkbox" name="orgSub" style={{ marginRight: '0.5em' }} />
-                      Sub-division B
-                    </label>
-                  </div>
-                </div>
-
-                {/* ABCDE Org */}
-                <div style={{ marginBottom: '1em' }}>
-                  <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
-                    <input type="checkbox" name="orgMain" style={{ marginRight: '0.5em' }} />
-                    ABCDE Org
-                  </label>
-                  <div style={{ marginLeft: '1.8em', marginTop: '0.3em' }}>
-                    <label style={{ display: 'block', cursor: 'pointer' }}>
-                      <input type="checkbox" name="orgSub" style={{ marginRight: '0.5em' }} />
-                      East Chapter
-                    </label>
-                    <label style={{ display: 'block', cursor: 'pointer' }}>
-                      <input type="checkbox" name="orgSub" style={{ marginRight: '0.5em' }} />
-                      West Chapter
-                    </label>
-                  </div>
-                </div>
-
-                {/* Optional Apply button */}
-                <div style={{ textAlign: 'right', marginTop: '1em' }}>
-                  <button
-                    style={{
-                      background: '#884efe',
-                      color: '#fff',
-                      border: 'none',
-                      borderRadius: '1em',
-                      padding: '0.5em 1em',
-                      cursor: 'pointer'
-                    }}
-                  >
+                ))}
+                <div className="dropdown-apply-container">
+                  <button className="dropdown-apply-button" onClick={() => setOrgOpen(false)}>
                     Apply
                   </button>
                 </div>
@@ -220,113 +239,25 @@ function SearchResult() {
           </div>
 
           {/* Duration button + dropdown */}
-          <div style={{ position: 'relative' }}>
+          <div className="dropdown-container">
             <button onClick={toggleDuration}>Duration</button>
             {durationOpen && (
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '3.5em',
-                  left: '0',
-                  backgroundColor: '#fff',
-                  border: '1px solid black',
-                  borderRadius: '1.5em',
-                  padding: '1em',
-                  zIndex: 999,
-                  minWidth: '200px'
-                }}
-              >
-                {/* No specific timeframe */}
-                <div style={{ marginBottom: '1em' }}>
-                  <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
-                    <input
-                      type="radio"
-                      name="durationMain"
-                      style={{ marginRight: '0.5em' }}
-                    />
-                    No specific timeframe
-                  </label>
-                  {/* Subcategory example */}
-                  <div style={{ marginLeft: '1.8em', marginTop: '0.3em' }}>
-                    <label style={{ display: 'block', cursor: 'pointer' }}>
-                      <input type="radio" name="durationSub" style={{ marginRight: '0.5em' }} />
-                      Within 2 weeks
-                    </label>
-                    <label style={{ display: 'block', cursor: 'pointer' }}>
-                      <input type="radio" name="durationSub" style={{ marginRight: '0.5em' }} />
-                      Within 1 month
+              <div className="dropdown-menu">
+                {availableFilters.durations.map((duration) => (
+                  <div key={duration} className="dropdown-item">
+                    <label className="dropdown-main-label">
+                      <input 
+                        type="radio" 
+                        name="durationMain" 
+                        checked={filters.durations?.includes(duration) || false}
+                        onChange={() => handleDurationFilter(duration)}
+                      />
+                      {duration}
                     </label>
                   </div>
-                </div>
-
-                {/* Short term 1 - 4 weeks */}
-                <div style={{ marginBottom: '1em' }}>
-                  <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
-                    <input
-                      type="radio"
-                      name="durationMain"
-                      style={{ marginRight: '0.5em' }}
-                    />
-                    Short term 1 - 4 weeks
-                  </label>
-                  <div style={{ marginLeft: '1.8em', marginTop: '0.3em' }}>
-                    <label style={{ display: 'block', cursor: 'pointer' }}>
-                      <input type="radio" name="durationSub" style={{ marginRight: '0.5em' }} />
-                      1 week
-                    </label>
-                    <label style={{ display: 'block', cursor: 'pointer' }}>
-                      <input type="radio" name="durationSub" style={{ marginRight: '0.5em' }} />
-                      2 weeks
-                    </label>
-                    <label style={{ display: 'block', cursor: 'pointer' }}>
-                      <input type="radio" name="durationSub" style={{ marginRight: '0.5em' }} />
-                      3 weeks
-                    </label>
-                    <label style={{ display: 'block', cursor: 'pointer' }}>
-                      <input type="radio" name="durationSub" style={{ marginRight: '0.5em' }} />
-                      4 weeks
-                    </label>
-                  </div>
-                </div>
-
-                {/* Long term 4+ weeks */}
-                <div style={{ marginBottom: '1em' }}>
-                  <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
-                    <input
-                      type="radio"
-                      name="durationMain"
-                      style={{ marginRight: '0.5em' }}
-                    />
-                    Long term 4+ weeks
-                  </label>
-                  <div style={{ marginLeft: '1.8em', marginTop: '0.3em' }}>
-                    <label style={{ display: 'block', cursor: 'pointer' }}>
-                      <input type="radio" name="durationSub" style={{ marginRight: '0.5em' }} />
-                      1 - 2 months
-                    </label>
-                    <label style={{ display: 'block', cursor: 'pointer' }}>
-                      <input type="radio" name="durationSub" style={{ marginRight: '0.5em' }} />
-                      2 - 3 months
-                    </label>
-                    <label style={{ display: 'block', cursor: 'pointer' }}>
-                      <input type="radio" name="durationSub" style={{ marginRight: '0.5em' }} />
-                      3+ months
-                    </label>
-                  </div>
-                </div>
-
-                {/* Optional Apply button */}
-                <div style={{ textAlign: 'right', marginTop: '1em' }}>
-                  <button
-                    style={{
-                      background: '#884efe',
-                      color: '#fff',
-                      border: 'none',
-                      borderRadius: '1em',
-                      padding: '0.5em 1em',
-                      cursor: 'pointer'
-                    }}
-                  >
+                ))}
+                <div className="dropdown-apply-container">
+                  <button className="dropdown-apply-button" onClick={() => setDurationOpen(false)}>
                     Apply
                   </button>
                 </div>
@@ -338,18 +269,22 @@ function SearchResult() {
         <hr />
 
         <div className='search-result-count'>
-          <p>300 Results</p>
+          <p>{volunteers.length} Results</p>
         </div>
         <div className='search-result-content'>
           <div className='search-result-left'>
-            <ResultCard />
-            <ResultCard />
-            <ResultCard />
-            <ResultCard />
-            <ResultCard />
+            {volunteers.map((volunteer) => (
+              <ResultCard
+                key={volunteer.id}
+                volunteer={volunteer}
+                onClick={() => handleCardClick(volunteer)}
+              />
+            ))}
           </div>
           <div className='search-result-right'>
-            <ResultDetail />
+            {selectedVolunteer && (
+              <ResultDetail volunteer={selectedVolunteer} />
+            )}
           </div>
         </div>
       </div>
