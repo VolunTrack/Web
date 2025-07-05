@@ -57,12 +57,15 @@ function Home() {
                 <div className='learn-more'>
                     <div className='home-text-container'>
                         <div className='home-text'>
-                            <h1>Your best partner for connecting with non-profits and building community</h1>
-                            <p>At Voluntrack, we connect volunteers with non-profits through innovative technology to drive meaningful community impact. As a Canada Not-for-profit, we’re dedicated to fostering positive change.</p>
+                            <h1>Your Best Partner for Connecting with Non-Profits and Building Community.</h1>
+                            <p>At Voluntrack, we connect volunteers with non-profits through innovative technology to drive meaningful community impact.</p>
+                            <p>As a Canada Not-for-profit, we're dedicated to fostering positive change.</p>
+                            <button className='learn-more-btn'>Learn more about us</button>
                         </div>
-                        <div className='home-place-holder' />
+                        <div className='home-hands-container'>
+                            <img src='/assets/hands.png' alt='hands' className='home-hands-image' />
+                        </div>
                     </div>
-                    {/* <img src='/assets/hands.png' alt='hands' className='home-image' /> */}
                 </div>
 
                 <div className='download-app'>
