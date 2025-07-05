@@ -11,7 +11,7 @@ function HeroSection() {
                 <p className="slogan-2">Find volunteer opportunities that match your passions</p>
             </div>
             <div className="logo-container">
-                <img src="/assets/voluntrack_bg.png" alt="logo-bg-image" />
+                <img src="/assets/logo-grey-no-padding.png" alt="logo-bg-image" />
             </div>
         </div>
     </section>

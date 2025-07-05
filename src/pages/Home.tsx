@@ -53,8 +53,10 @@ function Home() {
                     },
                 ]} />
                 </div>
+            </div>
 
-                <div className='learn-more'>
+            <div className='learn-more'>
+                <div className='learn-more-container'>
                     <div className='home-text-container'>
                         <div className='home-text'>
                             <h1>Your Best Partner for Connecting with Non-Profits and Building Community.</h1>
@@ -67,8 +69,10 @@ function Home() {
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div className='download-app'>
+            <div className='download-app'>
+                <div className='download-app-wrapper'>
                     <div className='download-app-container'>
                         <div className='download-app-text'>
                             <h1>Capture the volunteer experience with Voluntrack App!</h1>

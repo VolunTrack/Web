@@ -2,13 +2,13 @@
     width: 100%;
     background-color: #884efe;
     display: flex;
-    justify-content: center;
 }
 
 .hero-container {
     display: flex;
     flex-direction: row;
-    width: min(80%, 1280px);
+    width: min(80%, 1080px);
+    margin: 0 auto;
 }
 
 .hero-text-container {

@@ -14,7 +14,7 @@
 
 .about-us .banner-container {
     margin: 0 auto;
-    width: min(80%, 1280px);
+    width: min(80%, 1080px);
     /* height: 10em; */
     padding: 40px 0;
 }
@@ -48,7 +48,7 @@
     align-items: center;
     justify-content: center;
     /* background-color: #f8f9fa; */
-    width: min(80%, 1280px);
+    width: min(80%, 1080px);
     margin: 0 auto;
 }
 
@@ -73,7 +73,7 @@
     align-items: center;
     justify-content: center;
     /* background-color: #f8f9fa; */
-    width: min(80%, 1280px);
+    width: min(80%, 1080px);
     margin: 0 auto;
 }
 
@@ -99,12 +99,12 @@
     /* align-items: center; */
     /* justify-content: center; */
     /* background-color: #f8f9fa; */
-    /* width: min(80%, 1280px); */
+    /* width: min(80%, 1080px); */
     background-color: #884efe;
 }
 
 .about-us .contact-container {
-    width: min(80%, 1280px);
+    width: min(80%, 1080px);
     margin: 0 auto;
 }
 
