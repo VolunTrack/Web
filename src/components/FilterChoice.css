@@ -1,0 +1,31 @@
+.background {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    max-width: 500px;
+    font-family: sans-serif;
+  
+    /* 🔽 新增边框和阴影帮助可视化位置 */
+    border: 2px solid #6c63ff; /* 紫色边框，或你可以选其他颜色 */
+    box-shadow: 0 0 10px rgba(108, 99, 255, 0.3);
+    position: relative; /* 可选，如果后面用 absolute 子元素时有用 */
+    z-index: 1;
+  }
+  
+  
+  
+  .background ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .background li {
+    margin-bottom: 8px;
+  }
+  
+  .background input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+  
