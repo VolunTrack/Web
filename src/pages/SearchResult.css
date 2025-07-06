@@ -5,16 +5,18 @@
   margin-top: 2em;
 }
 
+.searchbar-wrapper {
+  width: 1080px;
+  background: #fff;
+  padding-top: 1em;
+}
+
 .search-result-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: min(80%, 1080px);
   margin-top: 2em;
-}
-
-.search-result-container .searchbar {
-  width: calc(100% - 3em);
 }
 
 .search-result .search-result-content {
@@ -70,21 +72,27 @@
 
 .search-result-content {
   display: flex;
-  align-items: flex-start; /* 确保左边和右边的顶部对齐 */
+  align-items: flex-start;
+  /* 确保左边和右边的顶部对齐 */
 }
 
 .search-result-left {
   flex: 1;
-  max-height: 100vh; /* 确保左边的最大高度不超过视口高度 */
-  overflow-y: auto; /* 启用垂直滚动 */
-  padding-right: 1em; /* 添加一些内边距以避免滚动条覆盖内容 */
+  max-height: 100vh;
+  /* 确保左边的最大高度不超过视口高度 */
+  overflow-y: auto;
+  /* 启用垂直滚动 */
+  padding-right: 1em;
+  /* 添加一些内边距以避免滚动条覆盖内容 */
 }
 
 
 .search-result-right {
   flex: 1;
-  max-height: 100vh; /* 确保右边的最大高度不超过视口高度 */
-  overflow-y: auto; /* 允许右边内容溢出 */
+  max-height: 100vh;
+  /* 确保右边的最大高度不超过视口高度 */
+  overflow-y: auto;
+  /* 允许右边内容溢出 */
 }
 
 
@@ -92,29 +100,37 @@
 自定义滚动条样式
 */
 .search-result-left::-webkit-scrollbar {
-  width: 8px; /* 设置滚动条的宽度 */
+  width: 8px;
+  /* 设置滚动条的宽度 */
 }
 
 .search-result-left::-webkit-scrollbar-thumb {
-  background-color: #c0c0c0; /* 设置滚动条的颜色 */
-  border-radius: 4px; /* 设置滚动条的圆角 */
+  background-color: #c0c0c0;
+  /* 设置滚动条的颜色 */
+  border-radius: 4px;
+  /* 设置滚动条的圆角 */
 }
 
 .search-result-left::-webkit-scrollbar-thumb:hover {
-  background-color: #a8a8a8; /* 设置滚动条在悬停时的颜色 */
+  background-color: #a8a8a8;
+  /* 设置滚动条在悬停时的颜色 */
 }
 
 .search-result-right::-webkit-scrollbar {
-  width: 8px; /* 设置滚动条的宽度 */
+  width: 8px;
+  /* 设置滚动条的宽度 */
 }
 
 .search-result-right::-webkit-scrollbar-thumb {
-  background-color: #c0c0c0; /* 设置滚动条的颜色 */
-  border-radius: 4px; /* 设置滚动条的圆角 */
+  background-color: #c0c0c0;
+  /* 设置滚动条的颜色 */
+  border-radius: 4px;
+  /* 设置滚动条的圆角 */
 }
 
 .search-result-right::-webkit-scrollbar-thumb:hover {
-  background-color: #a8a8a8; /* 设置滚动条在悬停时的颜色 */
+  background-color: #a8a8a8;
+  /* 设置滚动条在悬停时的颜色 */
 }
 
 /*
@@ -127,14 +143,6 @@ Result card
   border-radius: 1em;
   border: 1px solid #000000;
   margin: 1em;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.result-card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
-  border-color: #884efe;
 }
 
 .result-card h2 {
@@ -168,6 +176,12 @@ Result card
 .result-card .result-card-description p {
   font-size: 1em;
   margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* Limits to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /*

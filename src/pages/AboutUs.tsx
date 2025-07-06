@@ -1,6 +1,7 @@
 // filename: AboutUs.tsx
 
 import "./AboutUs.css";
+import OurTeamSection from "./../components/OurTeamSection"
 
 function AboutUs() {
   return (
@@ -33,14 +34,17 @@ function AboutUs() {
 
       <div className="vision">
         <div className="left">
-            <img src="/assets/voluntrack_bg.png" alt="background" />
+          <img src="/assets/logo.png" alt="logo" className="logo" />
+          <img src="/assets/voluntrack_bg.png" alt="background" className="background" />
         </div>
         <div className="right">
           <h2>Our Vision</h2>
-          <p>
-             to foster positive
+          <h1>
+            We strive to foster positive
+          </h1>
+          <h1>
             changes within communities.
-          </p>
+          </h1>
           <p>
             Our work extends beyond education to improve
             community well-being. We facilitate effective

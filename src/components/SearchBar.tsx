@@ -1,7 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './SearchBar.css';
+import { useNavigate } from 'react-router-dom';
 
 function SearchBar() {
+  const navigate = useNavigate();
+  
   // 1) City suggestions
   const suggestions_city = ['Toronto, ON', 'Mississauga, ON', 'Brampton, ON', 'GTA, ON'];
   const [inputValue, setInputValue] = useState('');
@@ -127,6 +130,17 @@ function SearchBar() {
     }
   };
 
+  // Handle search button click
+  const handleSearchClick = () => {
+    // You can pass search parameters here if needed
+    navigate('/search-result', { 
+      state: { 
+        city: inputValue, 
+        interests: selectedInterests 
+      } 
+    });
+  };
+
   // Optional: filter subcategories by user typing in the dropdown
   // const handleInterestTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   //   setSearchInterestText(e.target.value);
@@ -223,9 +237,9 @@ function SearchBar() {
       </div>
 
       <div className='search-button-container'>
-        <a href="/search-result">
+        <button onClick={handleSearchClick}>
           <img src='/assets/search-icon.png' alt='search-icon' />
-        </a>
+        </button>
       </div>
     </div>
   );
