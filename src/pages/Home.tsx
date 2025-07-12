@@ -19,17 +19,17 @@ function Home() {
                 content={[
                     {
                         title: 'Support',
-                        description: 'Support - some text',
+                        description: 'Peer support, Youth, Seniors, Settlement, Newcomers',
                         imagePath: '/images/card-support.png',
                     },
                     {
                         title: 'Culture',
-                        description: 'Culture - some text',
+                        description: 'Culture, Religion, Arts',
                         imagePath: '/images/card-culture.png',
                     },
                     {
                         title: 'Assistance',
-                        description: 'Assistance - some text',
+                        description: 'Fundraising, Food, Accessibility, Events',
                         imagePath: '/images/card-assistance.png',
                     },
                 ]} />
@@ -38,17 +38,17 @@ function Home() {
                 content={[
                     {
                         title: 'Learning',
-                        description: 'Learning - some text',
+                        description: 'Teaching, Education, Literacy, Writing',
                         imagePath: '/images/card-learning.png',
                     },
                     {
                         title: 'Leadership',
-                        description: 'Leadership - some text',
+                        description: 'Leadership, Communication, Public speaking, IT support',
                         imagePath: '/images/card-leadership.png',
                     },
                     {
                         title: 'Development',
-                        description: 'Development - some text',
+                        description: 'Career development, Critical thinking, Finance, Health',
                         imagePath: '/images/card-development.png',
                     },
                 ]} />

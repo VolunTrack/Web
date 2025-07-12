@@ -55,22 +55,39 @@ class VolunteerService {
   ): Promise<{ volunteers: VolunteerOpportunity[], lastDoc?: DocumentSnapshot }> {
     try {
       const volunteersRef = collection(db, this.collectionName);
-      let q = query(volunteersRef, orderBy('createdAt', 'desc'));
+
+      // 标记是否使用了 'in' 过滤，若使用则避免 orderBy 造成复合索引需求
+      let usedInOperator = false;
+
+      let q = query(volunteersRef);
 
       // 应用过滤器
       if (filters) {
         if (filters.organizations && filters.organizations.length > 0) {
-          q = query(q, where('organization', 'in', filters.organizations));
+          q = filters.organizations.length === 1
+            ? query(q, where('organization', '==', filters.organizations[0]))
+            : (usedInOperator = true, query(q, where('organization', 'in', filters.organizations)));
         }
         if (filters.categories && filters.categories.length > 0) {
-          q = query(q, where('category', 'in', filters.categories));
+          q = filters.categories.length === 1
+            ? query(q, where('category', '==', filters.categories[0]))
+            : (usedInOperator = true, query(q, where('category', 'in', filters.categories)));
         }
         if (filters.locations && filters.locations.length > 0) {
-          q = query(q, where('location', 'in', filters.locations));
+          q = filters.locations.length === 1
+            ? query(q, where('location', '==', filters.locations[0]))
+            : (usedInOperator = true, query(q, where('location', 'in', filters.locations)));
         }
         if (filters.durations && filters.durations.length > 0) {
-          q = query(q, where('duration', 'in', filters.durations));
+          q = filters.durations.length === 1
+            ? query(q, where('duration', '==', filters.durations[0]))
+            : (usedInOperator = true, query(q, where('duration', 'in', filters.durations)));
         }
+      }
+
+      // 若没有使用 'in' 操作，则可以安全地按 createdAt 排序，减少索引冲突
+      if (!usedInOperator) {
+        q = query(q, orderBy('createdAt', 'desc'));
       }
 
       // 应用分页
@@ -84,7 +101,7 @@ class VolunteerService {
       }
 
       const querySnapshot = await getDocs(q);
-      const volunteers: VolunteerOpportunity[] = [];
+      let volunteers: VolunteerOpportunity[] = [];
       
       querySnapshot.forEach((doc) => {
         const data = doc.data();
@@ -95,6 +112,15 @@ class VolunteerService {
           updatedAt: data.updatedAt?.toDate()
         } as VolunteerOpportunity);
       });
+
+      // 若在查询中跳过了 orderBy，改为客户端排序
+      if (usedInOperator) {
+        volunteers = volunteers.sort((a, b) => {
+          const timeA = a.createdAt ? a.createdAt.getTime() : 0;
+          const timeB = b.createdAt ? b.createdAt.getTime() : 0;
+          return timeB - timeA;
+        });
+      }
 
       const lastDoc = querySnapshot.docs[querySnapshot.docs.length - 1];
       
@@ -139,21 +165,44 @@ class VolunteerService {
       // 对于复杂的搜索，可能需要使用Algolia或其他搜索服务
       const volunteersRef = collection(db, this.collectionName);
       
+      // 标记 'in' 使用
+      let usedInOperator = false;
+
       // 如果有搜索词，可以按标题搜索
       let q = query(
         volunteersRef,
         where('title', '>=', searchTerm),
         where('title', '<=', searchTerm + '\uf8ff'),
-        orderBy('title'),
-        orderBy('createdAt', 'desc')
+        orderBy('title')
       );
 
       // 应用其他过滤器
       if (filters) {
         if (filters.organizations && filters.organizations.length > 0) {
-          q = query(q, where('organization', 'in', filters.organizations));
+          q = filters.organizations.length === 1
+            ? query(q, where('organization', '==', filters.organizations[0]))
+            : query(q, where('organization', 'in', filters.organizations));
         }
-        // ... 其他过滤器
+        if (filters.categories && filters.categories.length > 0) {
+          q = filters.categories.length === 1
+            ? query(q, where('category', '==', filters.categories[0]))
+            : query(q, where('category', 'in', filters.categories));
+        }
+        if (filters.locations && filters.locations.length > 0) {
+          q = filters.locations.length === 1
+            ? query(q, where('location', '==', filters.locations[0]))
+            : query(q, where('location', 'in', filters.locations));
+        }
+        if (filters.durations && filters.durations.length > 0) {
+          q = filters.durations.length === 1
+            ? query(q, where('duration', '==', filters.durations[0]))
+            : (usedInOperator = true, query(q, where('duration', 'in', filters.durations)));
+        }
+      }
+
+      // 若没使用 in，则可安全按 createdAt 排序
+      if (!usedInOperator) {
+        q = query(q, orderBy('createdAt', 'desc'));
       }
 
       // 应用分页
@@ -165,7 +214,7 @@ class VolunteerService {
       }
 
       const querySnapshot = await getDocs(q);
-      const volunteers: VolunteerOpportunity[] = [];
+      let volunteers: VolunteerOpportunity[] = [];
       
       querySnapshot.forEach((doc) => {
         const data = doc.data();
@@ -176,6 +225,14 @@ class VolunteerService {
           updatedAt: data.updatedAt?.toDate()
         } as VolunteerOpportunity);
       });
+
+      if (usedInOperator) {
+        volunteers = volunteers.sort((a, b) => {
+          const timeA = a.createdAt ? a.createdAt.getTime() : 0;
+          const timeB = b.createdAt ? b.createdAt.getTime() : 0;
+          return timeB - timeA;
+        });
+      }
 
       const lastDoc = querySnapshot.docs[querySnapshot.docs.length - 1];
       

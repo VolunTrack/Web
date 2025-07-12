@@ -11,19 +11,19 @@ function AboutUs() {
             <h2>Who We Are</h2>
             <h1>Empowering Volunteers, <br />Strengthening Non-Profits</h1>
             <p>
-                We are a dynamic platform that connects volunteers
-                with meaningful opportunities and enhances the
-                operational capabilities of non-profit organizations.
+              We are a dynamic platform that connects volunteers
+              with meaningful opportunities and enhances the
+              operational capabilities of non-profit organizations.
             </p>
             <p>
-                We believe in the synergy that can be achieved when
-                individuals and organizations come together for
-                communal benefit.
+              We believe in the synergy that can be achieved when
+              individuals and organizations come together for
+              communal benefit.
             </p>
           </div>
-          <img 
-            src="/assets/about-us-hero-bg.png" 
-            alt="volunteers background" 
+          <img
+            src="/assets/about-us-hero-bg.png"
+            alt="volunteers background"
             className="banner-bg-image"
           />
           <div className="banner-overlay"></div>
@@ -32,16 +32,17 @@ function AboutUs() {
 
       <div className="vision">
         <div className="left">
+          {/* <img src="/assets/logo.png" alt="logo" className="logo" /> */}
           <img src="/assets/voluntrack_bg.png" alt="background" className="background" />
         </div>
         <div className="right">
-          <h2>Our Vision</h2>
-          <h1>
+          <h1>Our Vision</h1>
+          <div className="vision-highlight">
             We strive to foster positive
-          </h1>
-          <h1>
+          </div>
+          <div className="vision-highlight">
             changes within communities.
-          </h1>
+          </div>
           <p>
             Our work extends beyond education to improve
             community well-being. We facilitate effective
@@ -57,39 +58,71 @@ function AboutUs() {
       </div>
 
       <div className="team">
-        <p>Our Team</p>
-        <h1>
+        <div className="team-content">
+          <p>Our Team</p>
+          <h1>
             We are passionate, focused
-        </h1>
-        <h1>
+          </h1>
+          <h1>
             volunteers dedicated to your success.
-        </h1>
-        
-        <div className="team-grid">
-          <div className="team-member">
-            <img src="/images/Shuolin Yin.png" alt="Shuolin Yin" />
-            <h3>Shuolin Yin</h3>
-            <p>Founder</p>
+          </h1>
+
+          <div className="team-grid">
+            <div className="team-member">
+              <img src="/images/Shuolin Yin.png" alt="Shuolin Yin" />
+              <h3>Shuolin Yin</h3>
+              <p>Founder</p>
+            </div>
+            <div className="team-member">
+              <img src="/images/Feiyang Xu.png" alt="Feiyang Xu" />
+              <h3>Feiyang Xu</h3>
+              <p>President</p>
+            </div>
+            <div className="team-member">
+              <img src="/images/Alan Yang.png" alt="Alan Yang" />
+              <h3>Alan Yang</h3>
+              <p>Tech Director</p>
+            </div>
+            <div className="team-member">
+              <img src="/images/Shuolin Yin.png" alt="Shuolin Yin" />
+              <h3>Shuolin Yin</h3>
+              <p>Founder</p>
+            </div>
+            <div className="team-member">
+              <img src="/images/Alan Yang.png" alt="Alan Yang" />
+              <h3>Alan Yang</h3>
+              <p>Tech Director</p>
+            </div>
           </div>
-          <div className="team-member">
-            <img src="/images/Feiyang Xu.png" alt="Feiyang Xu" />
-            <h3>Feiyang Xu</h3>
-            <p>President</p>
-          </div>
-          <div className="team-member">
-            <img src="/images/Alan Yang.png" alt="Alan Yang" />
-            <h3>Alan Yang</h3>
-            <p>Tech Director</p>
-          </div>
-          <div className="team-member">
-            <img src="/images/Shuolin Yin.png" alt="Shuolin Yin" />
-            <h3>Shuolin Yin</h3>
-            <p>Founder</p>
-          </div>
-          <div className="team-member">
-            <img src="/images/Alan Yang.png" alt="Alan Yang" />
-            <h3>Alan Yang</h3>
-            <p>Tech Director</p>
+        </div>
+
+         <div className="team-content">
+          <div className="team-grid">
+            <div className="team-member">
+              <img src="/images/Shuolin Yin.png" alt="Shuolin Yin" />
+              <h3>Shuolin Yin</h3>
+              <p>Founder</p>
+            </div>
+            <div className="team-member">
+              <img src="/images/Feiyang Xu.png" alt="Feiyang Xu" />
+              <h3>Feiyang Xu</h3>
+              <p>President</p>
+            </div>
+            <div className="team-member">
+              <img src="/images/Alan Yang.png" alt="Alan Yang" />
+              <h3>Alan Yang</h3>
+              <p>Tech Director</p>
+            </div>
+            <div className="team-member">
+              <img src="/images/Shuolin Yin.png" alt="Shuolin Yin" />
+              <h3>Shuolin Yin</h3>
+              <p>Founder</p>
+            </div>
+            <div className="team-member">
+              <img src="/images/Alan Yang.png" alt="Alan Yang" />
+              <h3>Alan Yang</h3>
+              <p>Tech Director</p>
+            </div>
           </div>
         </div>
       </div>
@@ -119,9 +152,9 @@ function AboutUs() {
               Contact us
             </button>
           </div>
-          <img 
-            src="/assets/about-us-contact-bg.png" 
-            alt="contact background" 
+          <img
+            src="/assets/about-us-contact-bg.png"
+            alt="contact background"
             className="contact-bg-image"
           />
           <div className="contact-overlay"></div>

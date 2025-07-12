@@ -108,6 +108,12 @@
   transform: scale(0.98);
 }
 
+.search-button-container button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .search-button-container img {
   width: 1.5em;
   height: 1.5em;

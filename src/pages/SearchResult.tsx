@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import './SearchResult.css';
 import SearchBar from '../components/SearchBar';
 import { volunteerService, VolunteerOpportunity, SearchFilters } from '../services/volunteerService';
-import { FirebaseConfigDebug } from '../debug/FirebaseConfig';
 
 interface ResultCardProps {
   volunteer: VolunteerOpportunity;
@@ -85,6 +85,9 @@ function ResultDetail({ volunteer }: ResultDetailProps) {
 }
 
 function SearchResult() {
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+
   // State for toggling each dropdown
   const [orgOpen, setOrgOpen] = useState(false);
   const [durationOpen, setDurationOpen] = useState(false);
@@ -95,7 +98,10 @@ function SearchResult() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // State for filters
+  // 基于 URL / 路由 state 解析出的搜索关键词
+  const [searchTerm, setSearchTerm] = useState<string>('');
+
+  // State for filters（不包含 searchTerm，由上面单独管理）
   const [filters, setFilters] = useState<SearchFilters>({});
   const [availableFilters, setAvailableFilters] = useState<{
     organizations: string[];
@@ -109,26 +115,66 @@ function SearchResult() {
     durations: []
   });
 
-  // Load volunteer data on component mount
+  /**
+   * 每当 URL 查询参数或路由 state 变化时，重新解析搜索关键词与过滤条件。
+   */
+  useEffect(() => {
+    const queryParam = searchParams.get('query') || '';
+    const cityParam = searchParams.get('city') || '';
+
+    const routeState = (location.state || {}) as { city?: string; interests?: string[] };
+
+    const initFilters: SearchFilters = {};
+
+    // URL 参数优先
+    if (cityParam) {
+      initFilters.locations = [cityParam];
+    } else if (routeState.city) {
+      initFilters.locations = [routeState.city];
+    }
+
+    if (routeState.interests && routeState.interests.length > 0) {
+      initFilters.categories = routeState.interests;
+    }
+
+    setFilters(initFilters);
+    setSearchTerm(queryParam);
+  }, [searchParams, location.state]);
+
+  /**
+   * 当过滤条件或搜索词更改时，重新拉取志愿者数据。
+   */
   useEffect(() => {
     const loadVolunteers = async () => {
       try {
         setLoading(true);
         setError(null);
-        
-        // 获取志愿者数据
-        const { volunteers: fetchedVolunteers } = await volunteerService.getAllVolunteers(filters);
+
+        let fetchedVolunteers: VolunteerOpportunity[] = [];
+
+        if (searchTerm.trim()) {
+          // 如果有搜索关键词，则使用 searchVolunteers
+          const result = await volunteerService.searchVolunteers(searchTerm.trim(), filters);
+          fetchedVolunteers = result.volunteers;
+        } else {
+          // 否则获取全部（受过滤器约束）
+          const result = await volunteerService.getAllVolunteers(filters);
+          fetchedVolunteers = result.volunteers;
+        }
+
         setVolunteers(fetchedVolunteers);
-        
+
         // 设置默认选中的志愿者
         if (fetchedVolunteers.length > 0) {
           setSelectedVolunteer(fetchedVolunteers[0]);
+        } else {
+          setSelectedVolunteer(null);
         }
-        
+
         // 获取筛选选项
         const filterOptions = await volunteerService.getFilterOptions();
         setAvailableFilters(filterOptions);
-        
+
       } catch (err) {
         console.error('加载志愿者数据失败:', err);
         setError('加载数据失败，请稍后重试');
@@ -136,9 +182,9 @@ function SearchResult() {
         setLoading(false);
       }
     };
-    
+
     loadVolunteers();
-  }, [filters]);
+  }, [filters, searchTerm]);
 
   const toggleOrg = () => {
     setOrgOpen(!orgOpen);
@@ -206,7 +252,6 @@ function SearchResult() {
 
   return (
     <div className='search-result'>
-      <FirebaseConfigDebug />
       <div className='search-result-container'>
         <SearchBar />
 

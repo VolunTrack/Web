@@ -132,13 +132,22 @@ function SearchBar() {
 
   // Handle search button click
   const handleSearchClick = () => {
-    // You can pass search parameters here if needed
-    navigate('/search-result', { 
-      state: { 
-        city: inputValue, 
-        interests: selectedInterests 
-      } 
-    });
+    const params = new URLSearchParams();
+
+    // 城市/省份
+    const cityTrimmed = inputValue.trim();
+    if (cityTrimmed) {
+      params.set('city', cityTrimmed);
+    }
+
+    // 关键词（兴趣标签）
+    if (selectedInterests.length > 0) {
+      // 以空格拼接便于后续全文搜索，也可根据需要修改分隔符
+      params.set('query', selectedInterests.join(' '));
+    }
+
+    // 跳转到结果页并携带查询参数
+    navigate(`/search-result?${params.toString()}`);
   };
 
   // Optional: filter subcategories by user typing in the dropdown
@@ -238,7 +247,7 @@ function SearchBar() {
 
       <div className='search-button-container'>
         <button onClick={handleSearchClick}>
-          <img src='/assets/search-icon.png' alt='search-icon' />
+          <img src='/assets/search-icon.svg' alt='search-icon' />
         </button>
       </div>
     </div>

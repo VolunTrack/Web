@@ -20,15 +20,15 @@
     margin-right: 2em;
 }
 
-.footer-logo > img {
-    width: 5em;
-    height: 5em;
+.footer-logo>img {
+    width: 137px;
+    height: 134px;
     padding: 8px;
     border-radius: 8px;
     transition: all 0.3s ease;
 }
 
-.footer-logo > img:hover {
+.footer-logo>img:hover {
     box-shadow: 0 4px 12px rgba(136, 78, 254, 0.15);
     transform: translateY(-2px);
     background-color: rgba(136, 78, 254, 0.05);
@@ -48,6 +48,7 @@
 
 .footer-left h2 {
     margin-top: 0;
+    margin-bottom: 0em;
     color: #884efe;
     padding: 8px 12px;
     border-radius: 6px;
@@ -59,6 +60,11 @@
     background-color: rgba(136, 78, 254, 0.1);
     box-shadow: 0 2px 8px rgba(136, 78, 254, 0.2);
     transform: translateY(-1px);
+}
+
+.footer-left p {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
 }
 
 .footer-left .footer-social {
@@ -113,8 +119,8 @@
     transform: translateY(-1px);
 }
 
-.footer-right p {
-    margin: 0.5em 0;
+.footer-right b {
+    padding: 0.5em;
 }
 
 .footer-bottom {
