@@ -30,7 +30,7 @@ function Footer() {
                 </div>
                 <div className='footer-right'>
                     <div className='footer-about'>
-                        <b>Quick Links</b>
+                        <b>About</b>
                         <a href='/'>Home</a>
                         <a href='/about-us'>About Us</a>
                         <a href='/history'>Our History</a>
@@ -40,7 +40,7 @@ function Footer() {
                         <a>Privacy Policy</a>
                         <a>Terms and Conditions</a>
                     </div>
-                    <div className='footer-about'>
+                    <div className='footer-social'>
                         <b>Social</b>
                         <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
                         <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>

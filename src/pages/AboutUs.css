@@ -13,7 +13,6 @@
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 50%, #A78BFA 100%);
-    height: 350px;
     position: relative;
     overflow: hidden;
 }
@@ -35,7 +34,6 @@
     width: 50%;
     margin: 5em 0;
     width: min(80%, 1080px);
-    height: 100%;
     margin: 0 auto;
     position: relative;
     display: flex;
@@ -44,15 +42,14 @@
 }
 
 .about-us .banner-content {
-    padding: 80px 40px;
+    padding: 40px 5px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     z-index: 3;
     position: relative;
-    width: 100%;
-    padding-right: 400px;
+    width: 50%;
 }
 
 .about-us .banner-bg-image {
@@ -81,11 +78,10 @@
 
 .about-us .banner-content h2 {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.5em;
     font-weight: 300;
-    font-size: 1.2rem;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    margin-top: 1em;
+    margin-top: 2em;
     margin-bottom: 0.5em;
     margin-top: 0;
     margin-bottom: 0.5em;
@@ -95,7 +91,7 @@
 
 .about-us .banner-content h1 {
     color: #fff;
-    font-size: 1.7rem;
+    font-size: 2.5rem;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     margin-top: 0;
     margin-bottom: 0.5em;
@@ -105,13 +101,10 @@
 
 .about-us .banner-content p {
     color: #fff;
-    font-size: 20px;
-    font-size: 1rem;
+    font-size: 1em;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    margin-top: 1.5em;
+    margin-top: 0.5em;
     margin-bottom: 0;
-    margin-top: 1em;
-    margin-bottom: 0.8em;
     opacity: 0.95;
     line-height: 1.5;
     max-width: 90%;

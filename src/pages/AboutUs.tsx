@@ -1,7 +1,6 @@
 // filename: AboutUs.tsx
 
 import "./AboutUs.css";
-import OurTeamSection from "./../components/OurTeamSection"
 
 function AboutUs() {
   return (
@@ -10,8 +9,7 @@ function AboutUs() {
         <div className="banner-container">
           <div className="banner-content">
             <h2>Who We Are</h2>
-            <h1>Empowering Volunteers,</h1>
-            <h1>Strengthening Non-Profits</h1>
+            <h1>Empowering Volunteers, <br />Strengthening Non-Profits</h1>
             <p>
                 We are a dynamic platform that connects volunteers
                 with meaningful opportunities and enhances the
@@ -34,7 +32,6 @@ function AboutUs() {
 
       <div className="vision">
         <div className="left">
-          <img src="/assets/logo.png" alt="logo" className="logo" />
           <img src="/assets/voluntrack_bg.png" alt="background" className="background" />
         </div>
         <div className="right">

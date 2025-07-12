@@ -14,14 +14,14 @@ function Header() {
               <span className="title">Voluntrack</span>
             </a>
             <div className="header-right">
-                <a 
+                <b><a 
                 href='/about-us'
                 className={`button ${location.pathname === '/about-us' ? 'active' : ''}`}
-                >About Us</a>
-                <a 
+                >About Us</a></b>
+                <b><a 
                 href='/history'
                 className={`button ${location.pathname === '/history' ? 'active' : ''}`}
-                >Our History</a>
+                >Our History</a></b>
             </div>
         </div>
     </header>

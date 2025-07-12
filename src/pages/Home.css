@@ -27,7 +27,6 @@
     width: 100%;
     margin-top: 1em;
     padding: 60px 0;
-    min-height: 400px;
 }
 
 .learn-more-container {
@@ -49,8 +48,8 @@
     align-items: center;
     justify-content: space-between;
     max-width: 1080px;
-    margin-top: 8em;
-    margin-bottom: 8em;
+    margin-top: 2em;
+    margin-bottom: 2em;
     margin-left: auto;
     margin-right: auto;
 }
@@ -61,7 +60,6 @@
     flex: 1;
     max-width: 50%;
     padding-right: 40px;
-    font-size: 1.2em;
     width: 50%;
     left: 5em;
     bottom: 5em;
@@ -70,7 +68,7 @@
 .home-text h1 {
     color: #884efe;
     text-transform: capitalize;
-    font-size: 2.5em;
+    font-size: 2.3em;
     font-weight: bold;
     margin-bottom: 20px;
     line-height: 1.2;
@@ -78,12 +76,10 @@
 
 .home-text p {
     color: #757575;
-    font-size: 1.1em;
+    font-size: 1.2em;
     line-height: 1.6;
     margin-bottom: 15px;
     opacity: 0.9;
-.home-text p {
-    color: #757575;
 }
 
 .home-button {
@@ -131,12 +127,9 @@
     max-width: 500px;
     height: auto;
     object-fit: contain;
-.home-image {
     position: absolute;
     width: 50%;
     object-fit: cover;
-    bottom: 0;
-    right: 0;
 }
 
 .download-app {
