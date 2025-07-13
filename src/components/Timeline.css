@@ -1,0 +1,85 @@
+/* Timeline.css */
+
+.timeline-wrapper {
+    position: relative;
+    width: 120px;
+    height: 220px;
+    margin: 20px auto;
+}
+
+/* 顶端紫色箭头 */
+.timeline-arrow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid #884efe;
+    z-index: 2;
+}
+
+/* 中心垂直线 */
+.timeline-line {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 1450px;
+    background-color: #ccc;
+    z-index: 1;
+}
+
+/* 年份节点容器 */
+.timeline-nodes {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 30px);
+}
+
+/* 单个年份节点 */
+.timeline-node {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* 年份文本 */
+.timeline-year {
+    font-size: 16px;
+    font-weight: bold;
+    color: #884efe;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 4px;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+}
+
+/* 圆点 */
+.timeline-dot {
+    width: 16px;
+    height: 16px;
+    background-color: #884efe;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+}
+
+/* 调整年份文本位置 - 左右交替 */
+.timeline-node:nth-child(odd) .timeline-year {
+    margin-right: 40px;
+}
+
+.timeline-node:nth-child(even) .timeline-year {
+    margin-left: 40px;
+}
