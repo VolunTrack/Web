@@ -2,7 +2,7 @@ import React from 'react';
 import './Timeline.css';
 
 const Timeline: React.FC = () => {
-    const years = ['2022', '2023', '2024', '2025'];
+    const years = ['2025', '2024', '2023', '2022'];
 
     return (
         <div className="timeline-wrapper">
@@ -15,7 +15,7 @@ const Timeline: React.FC = () => {
             {/* 年份节点 */}
             <div className="timeline-nodes">
                 {years.map((year, index) => (
-                    <div key={year} className="timeline-node" style={{ top: `${index * 56}px` }}>
+                    <div key={year} className="timeline-node" style={{ top: `${index * 360}px` }}>
                         {/* 年份文本 */}
                         <span className="timeline-year">{year}</span>
 
